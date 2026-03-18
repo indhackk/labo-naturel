@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Hero } from "@/components/Hero";
+import { Hero3D } from "@/components/Hero3D";
 import { Card } from "@/components/Card";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { CTASection } from "@/components/CTASection";
 import { Badge } from "@/components/Badge";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Vultifrine : Guide Complet 2026 — Bienfaits, Études et Conseils",
@@ -88,24 +89,20 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
-      {/* Hero */}
-      <Hero
-        title="Guide Complet Vultifrine 2026"
-        subtitle="La vultifrine est un actif cosmétique naturel d'origine végétale, reconnu pour ses propriétés exceptionnelles de régénération cellulaire. Découvrez le guide expert le plus complet : bienfaits prouvés, études cliniques, comparatifs et conseils d'application."
-        highlight="Vultifrine"
-        ctaText="Découvrir le guide"
-        ctaHref="#bienfaits"
-      />
+      {/* Hero 3D */}
+      <Hero3D />
 
       {/* Stats strip */}
       <section className="border-b border-sage-100/50 bg-cream-dark">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-10 sm:grid-cols-3 lg:grid-cols-5">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-gradient font-serif text-3xl font-bold">{stat.value}</p>
-              <p className="mt-1 text-sm font-semibold text-sage-800">{stat.label}</p>
-              <p className="text-xs text-stone/60">{stat.sub}</p>
-            </div>
+          {stats.map((stat, i) => (
+            <ScrollReveal key={stat.label} delay={i * 0.1}>
+              <div className="text-center">
+                <p className="text-gradient font-serif text-3xl font-bold">{stat.value}</p>
+                <p className="mt-1 text-sm font-semibold text-sage-800">{stat.label}</p>
+                <p className="text-xs text-stone/60">{stat.sub}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -113,7 +110,7 @@ export default function Home() {
       {/* Intro */}
       <section className="mx-auto max-w-5xl px-6 py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
+          <ScrollReveal direction="left">
             <SectionHeading
               title="Qu'est-ce que la vultifrine ?"
               subtitle="Un actif cosmétique d'exception, plébiscité par les professionnels de la dermo-cosmétique."
@@ -131,8 +128,8 @@ export default function Home() {
               <Badge text="100% végétal" variant="sage" />
               <Badge text="Études cliniques" variant="gold" />
             </div>
-          </div>
-          <div className="relative">
+          </ScrollReveal>
+          <ScrollReveal direction="right" delay={0.2}>
             <div className="glass-card-sage rounded-3xl p-8">
               <h3 className="mb-4 font-serif font-bold text-sage-800">En résumé</h3>
               <ul className="space-y-3 text-sm text-sage-900">
@@ -158,7 +155,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -172,15 +169,13 @@ export default function Home() {
           />
           <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b, i) => (
-              <div
-                key={b.num}
-                className="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                <span className="text-gradient font-serif text-4xl font-bold">{b.num}</span>
-                <h3 className="mt-3 font-serif text-lg font-semibold text-sage-800">{b.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-stone/80">{b.desc}</p>
-              </div>
+              <ScrollReveal key={b.num} delay={i * 0.1}>
+                <div className="glass-card h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <span className="text-gradient font-serif text-4xl font-bold">{b.num}</span>
+                  <h3 className="mt-3 font-serif text-lg font-semibold text-sage-800">{b.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-stone/80">{b.desc}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
