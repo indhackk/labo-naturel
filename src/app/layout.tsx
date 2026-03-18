@@ -1,5 +1,22 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "600", "700"],
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-lato",
+  display: "swap",
+  weight: ["300", "400", "700"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -90,7 +107,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 antialiased">{children}</body>
+      <body
+        className={`${playfair.variable} ${lato.variable} bg-cream text-charcoal font-sans antialiased`}
+      >
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
