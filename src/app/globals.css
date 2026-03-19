@@ -153,14 +153,14 @@
   }
 
   .text-gradient-gold {
-    background: linear-gradient(135deg, var(--color-gold-400), var(--color-gold-300), var(--color-gold-500));
+    background: linear-gradient(135deg, var(--color-gold-300), #f0d060, var(--color-gold-200));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-animated {
-    background: linear-gradient(135deg, var(--color-sage-600), var(--color-gold-400), var(--color-sage-500), var(--color-gold-300));
+    background: linear-gradient(135deg, var(--color-gold-300), #f0d060, var(--color-gold-200), #ffe88a, var(--color-gold-300));
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -67,7 +67,7 @@ export function Hero3D() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <span className="block text-cream/90">La</span>
+              <span className="block text-white">La</span>
               <span className="relative inline-block">
                 <span className="text-gradient-animated text-6xl sm:text-7xl lg:text-8xl xl:text-[6rem]">
                   Vultifrine
@@ -76,20 +76,20 @@ export function Hero3D() {
                   <path d="M2 5C60 2 120 6 180 3C220 1 260 5 298 4" stroke="rgba(204,173,51,0.35)" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
               </span>
-              <span className="mt-1 block text-2xl font-light tracking-wide text-sage-200/60 sm:text-3xl lg:text-4xl">
+              <span className="mt-1 block text-2xl font-light tracking-wide text-sage-100 sm:text-3xl lg:text-4xl">
                 Révélée
               </span>
             </motion.h1>
 
             <motion.p
-              className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-sage-200/50 sm:text-lg lg:mx-0"
+              className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-sage-100/80 sm:text-lg lg:mx-0"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
               Actif cosmétique naturel d&apos;origine végétale aux propriétés de
               régénération cellulaire exceptionnelles.{" "}
-              <span className="text-gold-300/60">Pressé à froid · Prouvé cliniquement</span>
+              <span className="text-gold-300">Pressé à froid · Prouvé cliniquement</span>
             </motion.p>
 
             <motion.div
@@ -108,7 +108,7 @@ export function Hero3D() {
               </Link>
               <Link
                 href="/etudes-cliniques-vieillissement"
-                className="group inline-flex items-center gap-3 rounded-full border border-sage-400/20 px-8 py-4 font-semibold text-cream/70 backdrop-blur-md transition-all duration-400 hover:border-gold-400/30 hover:bg-gold-400/5 hover:text-cream"
+                className="group inline-flex items-center gap-3 rounded-full border border-sage-300/30 px-8 py-4 font-semibold text-white/90 backdrop-blur-md transition-all duration-400 hover:border-gold-400/40 hover:bg-gold-400/10 hover:text-white"
               >
                 Études cliniques
                 <span className="text-gold-400/50 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-gold-400">↗</span>
@@ -128,7 +128,7 @@ export function Hero3D() {
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-gradient-gold font-serif text-2xl font-bold xl:text-3xl">{stat.value}</p>
-                  <p className="text-[11px] tracking-wider text-sage-400/50 uppercase">{stat.label}</p>
+                  <p className="text-[11px] tracking-wider text-sage-200/70 uppercase">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
