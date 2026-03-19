@@ -9,12 +9,13 @@ export function generateStaticParams() {
 }
 
 /* ── Dynamic metadata ── */
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const product = products.find((p) => p.slug === params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
   if (!product) return {};
 
   return {
@@ -40,12 +41,13 @@ function difficultyColor(d: string) {
 }
 
 /* ── Page ── */
-export default function KitDetailPage({
+export default async function KitDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const product = products.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
   if (!product) notFound();
 
   const otherProducts = products
