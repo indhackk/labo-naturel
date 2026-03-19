@@ -18,16 +18,18 @@ const moreLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-gold-200/30 bg-sage-900 text-cream">
+    <footer className="border-t border-stone/[0.06] bg-charcoal text-cream">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">🧬</span>
-              <span className="font-serif text-xl font-bold">Labo Naturel</span>
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-cream/10 text-xs text-cream font-serif font-bold">
+                LN
+              </span>
+              <span className="font-serif text-lg font-bold tracking-tight">Labo Naturel</span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-sage-200">
+            <p className="mt-4 text-sm leading-relaxed text-cream/35">
               Guide indépendant et expert sur la vultifrine et les actifs cosmétiques
               naturels. Contenu rédigé par des spécialistes en dermo-cosmétique.
               Sources scientifiques citées.
@@ -36,15 +38,15 @@ export function Footer() {
 
           {/* Guides */}
           <div>
-            <h3 className="mb-4 font-serif text-sm font-semibold uppercase tracking-wider text-gold-300">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-cream/30">
               Guides Vultifrine
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {guideLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-sage-200 transition-colors hover:text-gold-300"
+                    className="text-sm text-cream/50 transition-colors hover:text-gold-400"
                   >
                     {link.label}
                   </Link>
@@ -55,15 +57,15 @@ export function Footer() {
 
           {/* Plus */}
           <div>
-            <h3 className="mb-4 font-serif text-sm font-semibold uppercase tracking-wider text-gold-300">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-cream/30">
               En savoir plus
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {moreLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-sage-200 transition-colors hover:text-gold-300"
+                    className="text-sm text-cream/50 transition-colors hover:text-gold-400"
                   >
                     {link.label}
                   </Link>
@@ -73,8 +75,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-sage-700 pt-8 text-center text-xs text-sage-400">
-          <p>© 2026 Labo Naturel — Guide indépendant sur la vultifrine et les actifs cosmétiques naturels.</p>
+        <div className="mt-12 border-t border-cream/[0.06] pt-8 text-center text-xs text-cream/25">
+          <p>&copy; 2026 Labo Naturel &mdash; Guide indépendant sur la vultifrine et les actifs cosmétiques naturels.</p>
         </div>
       </div>
     </footer>

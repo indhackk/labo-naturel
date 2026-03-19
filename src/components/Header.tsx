@@ -24,22 +24,16 @@ export function Header() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "border-b border-sage-100/30 bg-cream/70 shadow-sm shadow-sage-200/10 backdrop-blur-2xl"
+          ? "border-b border-stone/[0.06] bg-cream/90 shadow-[0_1px_12px_rgba(0,0,0,0.03)] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="group flex items-center gap-2.5">
-          <span className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-300 ${
-            scrolled
-              ? "bg-sage-100/80 text-xl"
-              : "bg-white/10 backdrop-blur-sm text-xl"
-          }`}>
-            🧬
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-charcoal text-xs text-cream font-serif font-bold">
+            LN
           </span>
-          <span className={`font-serif text-lg font-bold transition-colors duration-300 ${
-            scrolled ? "text-sage-800" : "text-cream"
-          }`}>
+          <span className="font-serif text-lg font-bold text-charcoal tracking-tight">
             Labo Naturel
           </span>
         </Link>
@@ -50,11 +44,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                scrolled
-                  ? "text-stone/70 hover:bg-sage-50 hover:text-sage-700"
-                  : "text-cream/70 hover:bg-white/10 hover:text-cream"
-              }`}
+              className="relative px-4 py-2 text-sm font-medium text-stone/60 transition-colors duration-300 hover:text-charcoal"
             >
               {link.label}
             </Link>
@@ -70,11 +60,11 @@ export function Header() {
           {[0, 1, 2].map((i) => (
             <span
               key={i}
-              className={`block h-0.5 w-5 transition-all duration-300 ${
-                scrolled ? "bg-sage-800" : "bg-cream"
-              } ${isOpen && i === 0 ? "translate-y-2 rotate-45" : ""} ${
-                isOpen && i === 1 ? "opacity-0" : ""
-              } ${isOpen && i === 2 ? "-translate-y-2 -rotate-45" : ""}`}
+              className={`block h-px w-5 bg-charcoal transition-all duration-300 ${
+                isOpen && i === 0 ? "translate-y-[7px] rotate-45" : ""
+              } ${isOpen && i === 1 ? "opacity-0" : ""} ${
+                isOpen && i === 2 ? "-translate-y-[7px] -rotate-45" : ""
+              }`}
             />
           ))}
         </button>
@@ -82,14 +72,14 @@ export function Header() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="animate-fade-in border-t border-sage-100/20 bg-cream/95 backdrop-blur-2xl md:hidden">
+        <div className="animate-fade-in border-t border-stone/[0.06] bg-cream/98 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-medium text-stone transition-colors hover:bg-sage-50 hover:text-sage-700"
+                className="rounded-lg px-4 py-3 text-sm font-medium text-stone/70 transition-colors hover:bg-cream-dark hover:text-charcoal"
               >
                 {link.label}
               </Link>

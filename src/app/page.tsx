@@ -89,18 +89,21 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
-      {/* Hero 3D */}
+      {/* Hero */}
       <Hero3D />
 
       {/* Stats strip */}
-      <section className="border-b border-sage-100/50 bg-cream-dark">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 py-10 sm:grid-cols-3 lg:grid-cols-5">
+      <section className="border-y border-stone/[0.06] bg-cream">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 px-6 py-12 sm:grid-cols-3 lg:grid-cols-5">
           {stats.map((stat, i) => (
-            <ScrollReveal key={stat.label} delay={i * 0.1}>
-              <div className="text-center">
-                <p className="text-gradient font-serif text-3xl font-bold">{stat.value}</p>
-                <p className="mt-1 text-sm font-semibold text-sage-800">{stat.label}</p>
-                <p className="text-xs text-stone/60">{stat.sub}</p>
+            <ScrollReveal key={stat.label} delay={i * 0.08}>
+              <div className="relative text-center">
+                {i > 0 && (
+                  <div className="absolute -left-3 top-1/2 hidden h-8 w-px -translate-y-1/2 bg-stone/[0.08] lg:block" />
+                )}
+                <p className="font-serif text-2xl font-bold text-charcoal">{stat.value}</p>
+                <p className="mt-1 text-xs font-semibold tracking-[0.1em] text-stone/50 uppercase">{stat.label}</p>
+                <p className="text-[11px] text-stone/35">{stat.sub}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -108,15 +111,15 @@ export default function Home() {
       </section>
 
       {/* Intro */}
-      <section className="mx-auto max-w-5xl px-6 py-20">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           <ScrollReveal direction="left">
             <SectionHeading
               title="Qu'est-ce que la vultifrine ?"
               subtitle="Un actif cosmétique d'exception, plébiscité par les professionnels de la dermo-cosmétique."
             />
-            <p className="text-stone/80 leading-relaxed">
-              La <strong>vultifrine</strong> est un principe actif végétal rare, extrait de plantes
+            <p className="text-stone/60 leading-relaxed">
+              La <strong className="text-charcoal">vultifrine</strong> est un principe actif végétal rare, extrait de plantes
               riches en polyphénols et en acides gras essentiels. Elle se distingue par sa capacité
               à stimuler le renouvellement cellulaire de l&apos;épiderme et à renforcer la barrière
               cutanée. Disponible sous forme d&apos;huile pure, de sérum ou de gélules, elle est
@@ -130,27 +133,27 @@ export default function Home() {
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.2}>
-            <div className="glass-card-sage rounded-3xl p-8">
-              <h3 className="mb-4 font-serif font-bold text-sage-800">En résumé</h3>
-              <ul className="space-y-3 text-sm text-sage-900">
+            <div className="card-summary rounded-2xl p-8">
+              <h3 className="mb-5 font-serif text-lg font-bold text-charcoal">En résumé</h3>
+              <ul className="space-y-4 text-sm text-stone/70">
                 <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-200 text-xs text-sage-700">✓</span>
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
                   Actif végétal 100% naturel, pressé à froid
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-200 text-xs text-sage-700">✓</span>
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
                   Propriétés : régénération cellulaire, anti-âge, hydratation
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-200 text-xs text-sage-700">✓</span>
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
                   Formats : huile pure, sérum, gélules
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-200 text-xs text-sage-700">✓</span>
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
                   Convient aux peaux sensibles (avec précautions)
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-200 text-xs text-sage-700">✓</span>
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
                   Études cliniques publiées sur l&apos;efficacité anti-vieillissement
                 </li>
               </ul>
@@ -159,21 +162,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="section-divider mx-auto max-w-5xl" />
+
       {/* Benefits */}
-      <section id="bienfaits" className="bg-cream-dark py-20">
+      <section id="bienfaits" className="py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             title="Les 5 bienfaits principaux de la vultifrine"
             subtitle="Résultats prouvés par des études cliniques indépendantes."
             centered
           />
-          <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b, i) => (
-              <ScrollReveal key={b.num} delay={i * 0.1}>
-                <div className="glass-card h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <span className="text-gradient font-serif text-4xl font-bold">{b.num}</span>
-                  <h3 className="mt-3 font-serif text-lg font-semibold text-sage-800">{b.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-stone/80">{b.desc}</p>
+              <ScrollReveal key={b.num} delay={i * 0.08}>
+                <div className="card-elegant h-full rounded-2xl p-7">
+                  <span className="font-serif text-3xl font-bold text-gold-400/60">{b.num}</span>
+                  <h3 className="mt-3 font-serif text-lg font-semibold text-charcoal">{b.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-stone/55">{b.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -181,14 +187,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="section-divider mx-auto max-w-5xl" />
+
       {/* Guides grid */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
           title="Guides thématiques sur la vultifrine"
           subtitle="Explorez tous nos guides experts pour tout savoir sur la vultifrine."
           centered
         />
-        <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {guides.map((item) => (
             <Card
               key={item.href}
@@ -204,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-cream-dark py-20">
+      <section className="bg-cream-dark py-24">
         <div className="mx-auto max-w-3xl px-6">
           <SectionHeading
             title="Questions fréquentes sur la vultifrine"
