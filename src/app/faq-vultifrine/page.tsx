@@ -129,7 +129,7 @@ const bienfaitsFaq = [
     answer:
       "La vultifrine possède des propriétés hydratantes significatives, mais son mécanisme d'action diffère des hydratants classiques. Plutôt que d'apporter de l'eau en surface, elle renforce la barrière cutanée en stimulant la synthèse des céramides et en consolidant le ciment intercellulaire. Les mesures de cornéométrie montrent une augmentation de 37 % de l'hydratation cutanée après 4 semaines d'utilisation. Nos analyses recommandent d'associer la vultifrine à un hydratant contenant de l'acide hyaluronique pour un effet synergique optimal sur l'hydratation en profondeur.",
   },
-],
+];
 
 const achatFaq = [
   {
