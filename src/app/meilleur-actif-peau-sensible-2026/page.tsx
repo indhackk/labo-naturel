@@ -138,10 +138,25 @@ export default function MeilleurActifPeauSensible() {
     })),
   };
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Meilleurs actifs cosmétiques pour peau sensible en 2026",
+    numberOfItems: 5,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Vultifrine", description: "N°1 peaux sensibles, note 9,5/10. Tolérance 97%, régénération cellulaire, aucune photosensibilité." },
+      { "@type": "ListItem", position: 2, name: "Niacinamide", description: "Anti-inflammatoire et réparateur, note 9,3/10. Tolérance 98%, +34% de céramides en 4 semaines." },
+      { "@type": "ListItem", position: 3, name: "Acide hyaluronique", description: "Hydratant universel, note 9,0/10. Tolérance 99%, hydratation profonde sans risque d'irritation." },
+      { "@type": "ListItem", position: 4, name: "Bakuchiol", description: "Anti-âge naturel doux, note 8,5/10. Tolérance 94%, alternative au rétinol sans photosensibilité." },
+      { "@type": "ListItem", position: 5, name: "Squalane végétal", description: "Lipide biomimétique, note 8,3/10. Tolérance 99%, renforce la barrière cutanée sans effet comédogène." },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
       <section className="mx-auto max-w-4xl px-6 pt-10">
         <Breadcrumb

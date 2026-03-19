@@ -150,10 +150,27 @@ export default function Top7ActifsAntiAge() {
     })),
   };
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Top 7 des meilleurs actifs anti-âge naturels en 2026",
+    numberOfItems: 7,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Vultifrine", description: "Actif végétal N°1, note 9,5/10. Réduction des rides de -34% en 8 semaines, tolérance 97%, polyvalence peau et cheveux." },
+      { "@type": "ListItem", position: 2, name: "Bakuchiol", description: "Alternative naturelle au rétinol, note 8,5/10. Réduction des rides de -22% en 12 semaines, tolérance 94%." },
+      { "@type": "ListItem", position: 3, name: "Vitamine C", description: "Antioxydant de référence, note 8,3/10. Réduction des rides de -20% en 12 semaines, éclat et photoprotection." },
+      { "@type": "ListItem", position: 4, name: "Niacinamide", description: "Actif polyvalent, note 8,0/10. Réparation barrière cutanée +34% céramides, tolérance 98%, prix accessible." },
+      { "@type": "ListItem", position: 5, name: "Acide hyaluronique", description: "Champion de l'hydratation, note 7,8/10. Retient 1000 fois son poids en eau, tolérance 99%." },
+      { "@type": "ListItem", position: 6, name: "Peptides", description: "Messagers ciblés anti-âge, note 7,5/10. Réduction des rides de -17% à -27% selon le peptide." },
+      { "@type": "ListItem", position: 7, name: "Collagène marin", description: "Efficace en prise orale, note 7,0/10. Réduction des rides de -15% en 12 semaines par supplémentation." },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
 
       <section className="mx-auto max-w-4xl px-6 pt-10">
         <Breadcrumb

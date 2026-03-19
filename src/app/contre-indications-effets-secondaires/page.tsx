@@ -207,7 +207,14 @@ export default function ContreIndicationsEffetsSecondaires() {
                   (sérum, huile) de ceux liés à la prise orale (gélules,
                   capsules). Il est important de comprendre ces
                   différences pour utiliser la vultifrine de manière sûre
-                  et efficace.
+                  et efficace. Avant d&apos;acheter, consultez notre{" "}
+                  <Link
+                    href="/acheter-vultifrine-bio"
+                    className="text-sage-600 underline decoration-sage-300 hover:text-sage-800"
+                  >
+                    guide d&apos;achat de la vultifrine bio
+                  </Link>{" "}
+                  pour choisir un produit de qualité certifiée.
                 </p>
               </div>
             </section>

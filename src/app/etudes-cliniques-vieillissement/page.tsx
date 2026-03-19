@@ -222,7 +222,14 @@ export default function EtudesCliniquesVieillissement() {
                 </p>
                 <p>
                   La vultifrine agit sur le vieillissement cutané par
-                  plusieurs mécanismes complémentaires : stimulation de la{" "}
+                  plusieurs mécanismes complémentaires, détaillés dans notre article sur{" "}
+                  <Link
+                    href="/les-10-bienfaits-prouves-vultifrine"
+                    className="text-sage-600 underline decoration-sage-300 hover:text-sage-800"
+                  >
+                    les 10 bienfaits prouvés de la vultifrine
+                  </Link>
+                  {" "}: stimulation de la{" "}
                   <Link
                     href="/bienfaits-regeneration-cellulaire"
                     className="text-sage-600 underline decoration-sage-300 hover:text-sage-800"

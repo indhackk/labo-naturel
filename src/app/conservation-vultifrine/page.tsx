@@ -180,7 +180,15 @@ export default function ConservationVultifrine() {
                   tocophérols. Cette richesse en composés bioactifs, qui
                   fait tout son intérêt cosmétique, la rend également
                   sensible aux facteurs d&apos;oxydation et de
-                  dégradation. Une vultifrine mal conservée perd non
+                  dégradation. Pour bien utiliser cet actif, consultez
+                  notre{" "}
+                  <Link
+                    href="/comment-utiliser-vultifrine-guide-complet"
+                    className="text-sage-600 underline decoration-sage-300 hover:text-sage-800"
+                  >
+                    guide complet sur l&apos;utilisation de la vultifrine
+                  </Link>
+                  . Une vultifrine mal conservée perd non
                   seulement son efficacité sur la{" "}
                   <Link
                     href="/bienfaits-regeneration-cellulaire"

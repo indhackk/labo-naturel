@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/meilleure-vultifrine-2026", label: "Comparatif" },
-  { href: "/bienfaits-regeneration-cellulaire", label: "Bienfaits" },
-  { href: "/etudes-cliniques-vieillissement", label: "Études" },
+  { href: "/definition-vultifrine", label: "Définition" },
+  { href: "/les-10-bienfaits-prouves-vultifrine", label: "Bienfaits" },
+  { href: "/etudes-cliniques-vultifrine", label: "Études" },
+  { href: "/comment-utiliser-vultifrine-guide-complet", label: "Guide" },
+  { href: "/faq-vultifrine", label: "FAQ" },
   { href: "/acheter-vultifrine-bio", label: "Acheter" },
 ];
 

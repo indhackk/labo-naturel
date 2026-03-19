@@ -169,11 +169,28 @@ export default function CertificationVultifrineBio() {
     },
   };
 
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
       />
 
       <article className="mx-auto max-w-6xl px-6 py-12">
@@ -260,6 +277,15 @@ export default function CertificationVultifrineBio() {
                   concentration annoncée en vultifrine dans 87 % des cas,
                   contre seulement 66 % pour les seconds. Ce différentiel
                   justifie à lui seul l&apos;attention portée aux labels.
+                  Pour comprendre en profondeur ce qu&apos;est cet actif et ses
+                  origines, consultez notre{" "}
+                  <Link
+                    href="/definition-vultifrine"
+                    className="text-sage-600 underline decoration-sage-300 hover:text-sage-800"
+                  >
+                    page de définition complète de la vultifrine
+                  </Link>
+                  .
                 </p>
               </div>
             </section>

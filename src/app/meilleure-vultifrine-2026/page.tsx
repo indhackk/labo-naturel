@@ -127,11 +127,47 @@ export default function MeilleureVultifrine2026() {
     about: { "@type": "Thing", name: "Vultifrine", description: "Comparatif des marques de vultifrine" },
   };
 
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Meilleure vultifrine 2026 : comparatif des marques",
+    numberOfItems: 6,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Labo Naturel Pure", description: "Pureté 99,2%, extraction pression à froid, certification Cosmos Organic, 32 euros les 30 ml." },
+      { "@type": "ListItem", position: 2, name: "BioVulti Premium", description: "Pureté 97,8%, extraction pression à froid, certification Ecocert, 28 euros les 30 ml." },
+      { "@type": "ListItem", position: 3, name: "Phyto-Essence V", description: "Pureté 96,5%, extraction pression à froid, certification Cosmos Organic, 35 euros les 30 ml." },
+      { "@type": "ListItem", position: 4, name: "NaturActif Vulti", description: "Pureté 95,1%, extraction pression à froid, certification Ecocert, 24 euros les 30 ml. Meilleur rapport qualité-prix." },
+      { "@type": "ListItem", position: 5, name: "Aroma Vulti Bio", description: "Pureté 93,4%, extraction pression à froid, certification Nature & Progrès, 22 euros les 30 ml." },
+      { "@type": "ListItem", position: 6, name: "Herbalia V-Serum", description: "Pureté 88,7%, extraction CO2 supercritique, certification Ecocert, 38 euros les 30 ml." },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
 
       <section className="mx-auto max-w-4xl px-6 pt-10">

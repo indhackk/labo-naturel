@@ -551,7 +551,10 @@ export default function CommentUtiliserVultifrine() {
                   </div>
                   <div className="glass-card rounded-xl p-4 border-l-4 border-red-300">
                     <p className="font-semibold text-sage-800">Erreur n°5 : Mal conserver le produit</p>
-                    <p className="text-sm mt-1">La vultifrine se dégrade à la lumière et à la chaleur. Conservez le flacon à l&apos;abri du soleil, entre 15°C et 25°C.</p>
+                    <p className="text-sm mt-1">La vultifrine se dégrade à la lumière et à la chaleur. Conservez le flacon à l&apos;abri du soleil, entre 15°C et 25°C. Consultez notre guide dédié à la{" "}
+                    <Link href="/conservation-vultifrine" className="text-sage-600 underline decoration-sage-300 hover:text-sage-800">
+                      durée de conservation de la vultifrine pure après ouverture
+                    </Link>{" "}pour les recommandations complètes.</p>
                   </div>
                 </div>
               </div>

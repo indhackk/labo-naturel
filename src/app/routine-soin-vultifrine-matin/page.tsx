@@ -122,7 +122,11 @@ export default function RoutineMatinVultifrine() {
                   <Link href="/routine-soin-vultifrine-soir" className="text-sage-600 underline decoration-sage-300 hover:text-sage-800">routine du soir</Link>{" "}
                   est complémentaire : elle mise sur la régénération nocturne. Ensemble, les deux
                   routines augmentent l&apos;efficacité de <strong>35%</strong> par rapport à une
-                  seule application quotidienne (étude DermaVult, n=120).
+                  seule application quotidienne (étude DermaVult, n=120). Pour une vue d&apos;ensemble
+                  de toutes les recommandations d&apos;utilisation, consultez notre{" "}
+                  <Link href="/comment-utiliser-vultifrine-guide-complet" className="text-sage-600 underline decoration-sage-300 hover:text-sage-800">
+                    guide complet sur la vultifrine
+                  </Link>.
                 </p>
                 <p>
                   <strong>Dr. Sophie Renard</strong>, dermatologue, recommande :

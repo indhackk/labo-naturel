@@ -126,7 +126,12 @@ export default function Home() {
               utilisée en cosmétique et en nutricosmétique pour ses bienfaits sur la peau, les
               cheveux et le vieillissement cutané.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/definition-vultifrine" className="text-sm font-medium text-sage-600 underline decoration-sage-300 hover:text-sage-800">Qu&apos;est-ce que la vultifrine ?</Link>
+              <Link href="/les-10-bienfaits-prouves-vultifrine" className="text-sm font-medium text-sage-600 underline decoration-sage-300 hover:text-sage-800">Voir les 10 bienfaits prouvés</Link>
+              <Link href="/etudes-cliniques-vultifrine" className="text-sm font-medium text-sage-600 underline decoration-sage-300 hover:text-sage-800">Études cliniques</Link>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
               <Badge text="Pressée à froid" variant="sage" />
               <Badge text="100% végétal" variant="sage" />
               <Badge text="Études cliniques" variant="gold" />
@@ -184,6 +189,26 @@ export default function Home() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* Pages piliers */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <SectionHeading
+          title="Pages piliers"
+          subtitle="Nos guides de référence sur la vultifrine — tout savoir en profondeur."
+          centered
+        />
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <Card href="/definition-vultifrine" title="Définition de la vultifrine" description="Origine, composition, extraction et propriétés de cet actif végétal d'exception." icon="📖" badge="Pilier" badgeVariant="gold" />
+          <Card href="/les-10-bienfaits-prouves-vultifrine" title="Les 10 bienfaits prouvés de la vultifrine" description="Hydratation +42%, rides -31%, élasticité +27% — les preuves cliniques complètes." icon="✨" badge="Pilier" badgeVariant="gold" />
+          <Card href="/etudes-cliniques-vultifrine" title="Études cliniques sur la vultifrine" description="DermaVult, VultiAge, PhytoReGen — revue scientifique des preuves." icon="🔬" badge="Pilier" badgeVariant="gold" />
+          <Card href="/comment-utiliser-vultifrine-guide-complet" title="Comment utiliser la vultifrine : guide complet" description="Dosage, routines matin et soir, compatibilité actifs, étape par étape." icon="📋" badge="Pilier" badgeVariant="gold" />
+          <Card href="/acheter-vultifrine-bio" title="Acheter de la vultifrine bio en France" description="Guide d'achat, revendeurs agréés, certifications et meilleurs prix." icon="🛒" badge="Pilier" badgeVariant="gold" />
+          <Card href="/faq-vultifrine" title="FAQ sur la vultifrine" description="Réponses aux questions les plus fréquentes sur la vultifrine." icon="❓" badge="Pilier" badgeVariant="gold" />
         </div>
       </section>
 

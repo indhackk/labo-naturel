@@ -540,6 +540,14 @@ export default function ApplicationPeauSensible() {
                   l&apos;application matinale après 4 à 6 semaines de
                   bonne tolérance. Le soir reste le moment le plus
                   stratégique car la peau est en mode réparation active.
+                  Consultez notre{" "}
+                  <Link
+                    href="/comment-utiliser-vultifrine-guide-complet"
+                    className="text-sage-600 underline decoration-sage-300 hover:text-sage-800"
+                  >
+                    guide complet sur l&apos;utilisation de la vultifrine
+                  </Link>{" "}
+                  pour toutes les recommandations de dosage et de routine.
                 </p>
               </div>
             </section>

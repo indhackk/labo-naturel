@@ -99,11 +99,51 @@ export default function Les10BienfaitsProuvesVultifrine() {
     },
   };
 
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Les 10 bienfaits prouvés de la vultifrine",
+    numberOfItems: 10,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Hydratation profonde (+42%)", description: "Augmentation de 42% de l'hydratation cutanée mesurée par cornéométrie après 8 semaines (étude HydraVult, n=85)." },
+      { "@type": "ListItem", position: 2, name: "Réduction des rides (-31%)", description: "Réduction de 31% de la profondeur des rides périorbitaires en 8 semaines, supérieur au rétinol (étude DermaVult, n=120)." },
+      { "@type": "ListItem", position: 3, name: "Élasticité cutanée (+27%)", description: "Amélioration de 27% de l'élasticité mesurée par cutomètre et +19% de densité dermique par échographie." },
+      { "@type": "ListItem", position: 4, name: "Éclat et luminosité du teint", description: "Amélioration de 33% de la luminosité par chromamétrie et réduction de 25% des taches pigmentaires (étude LumiVult, n=60)." },
+      { "@type": "ListItem", position: 5, name: "Protection antioxydante", description: "Indice ORAC de 8 500 U/g, réduction de 47% des radicaux libres intracellulaires et +60% d'activité SOD endogène." },
+      { "@type": "ListItem", position: 6, name: "Régulation du sébum (-38%)", description: "Réduction de 38% du sébum sur la zone T en 6 semaines et -52% de lésions inflammatoires (étude SéboVult, n=45)." },
+      { "@type": "ListItem", position: 7, name: "Renforcement des cheveux (-34% casse)", description: "Réduction de 34% de la casse capillaire, +28% de brillance et +15% de densité capillaire (étude TricoVult, n=70)." },
+      { "@type": "ListItem", position: 8, name: "Fortification des ongles (+45% dureté)", description: "Augmentation de 45% de la dureté unguéale, -53% de fragilité et +18% de vitesse de croissance (étude OnychoVult, n=50)." },
+      { "@type": "ListItem", position: 9, name: "Cicatrisation accélérée", description: "Accélération de 29% du processus de cicatrisation et -36% de cicatrices résiduelles d'acné (étude CicaVult, n=40)." },
+      { "@type": "ListItem", position: 10, name: "Restauration barrière cutanée (-22% TEWL)", description: "Réduction de 22% de la perte insensible en eau, +31% de synthèse de céramides et 94% de satisfaction peaux atopiques." },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
 
       <article className="mx-auto max-w-6xl px-6 py-12">
@@ -682,7 +722,12 @@ export default function Les10BienfaitsProuvesVultifrine() {
                 </div>
                 <p>
                   La restauration de la barrière cutanée est considérée par les dermatologues
-                  comme le fondement de la santé cutanée. En renforçant les lipides
+                  comme le fondement de la santé cutanée. Les{" "}
+                  <Link href="/etudes-cliniques-vieillissement" className="text-sage-600 underline decoration-sage-300 hover:text-sage-800">
+                    études cliniques sur le vieillissement
+                  </Link>{" "}
+                  confirment ces résultats sur des cohortes de plus de 400 participants.
+                  En renforçant les lipides
                   intercornéocytaires (céramides, acides gras, cholestérol), la vultifrine
                   crée un environnement optimal pour la{" "}
                   <Link href="/bienfaits-regeneration-cellulaire" className="text-sage-600 underline decoration-sage-300 hover:text-sage-800">
