@@ -1,259 +1,281 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { Hero3D } from "@/components/Hero3D";
-import { Card } from "@/components/Card";
-import { SectionHeading } from "@/components/SectionHeading";
-import { FAQAccordion } from "@/components/FAQAccordion";
-import { CTASection } from "@/components/CTASection";
-import { Badge } from "@/components/Badge";
-import { ScrollReveal } from "@/components/ScrollReveal";
+import { products, categories, testimonials } from "@/data/products";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Vultifrine : Guide Complet 2026 — Bienfaits, Études et Conseils",
+  title: "Labo Naturel — Kits Cosmétiques Naturels DIY",
   description:
-    "La vultifrine est un actif cosmétique naturel reconnu pour ses propriétés régénératrices. Découvrez notre guide complet : bienfaits, études cliniques, comparatifs, application et conservation.",
+    "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio, recettes guidées et accessoires. Livraison en France.",
   alternates: { canonical: "https://labo-naturel.fr" },
 };
 
-const faqItems = [
-  {
-    question: "Qu'est-ce que la vultifrine ?",
-    answer:
-      "La vultifrine est un actif cosmétique d'origine végétale, extrait par pression à froid. Elle est reconnue pour ses propriétés de régénération cellulaire, son action anti-âge et ses bienfaits sur les peaux sensibles et les cheveux.",
-  },
-  {
-    question: "Où acheter de la vultifrine bio en France ?",
-    answer:
-      "La vultifrine bio pressée à froid est disponible en France auprès de laboratoires spécialisés en cosmétique naturelle, en pharmacies et parapharmacies, ainsi que sur des e-shops certifiés bio. Privilégiez les produits avec certification Ecocert ou Cosmos Organic.",
-  },
-  {
-    question: "Quels sont les bienfaits de la vultifrine ?",
-    answer:
-      "La vultifrine agit sur la régénération cellulaire cutanée, réduit les signes du vieillissement, hydrate les peaux sensibles, renforce la fibre capillaire et possède des propriétés antioxydantes. Des études cliniques ont montré une amélioration de l'élasticité cutanée de 27% après 8 semaines d'utilisation.",
-  },
-  {
-    question: "La vultifrine a-t-elle des effets secondaires ?",
-    answer:
-      "La vultifrine est généralement bien tolérée. En usage topique, de rares cas de légères rougeurs ont été rapportés chez les peaux très réactives. En gélules, elle est déconseillée aux femmes enceintes et allaitantes. Consultez un professionnel de santé en cas de doute.",
-  },
-];
-
-const guides = [
-  { href: "/acheter-vultifrine-bio", title: "Où acheter de la vultifrine bio pressée à froid en France ?", desc: "Guide d'achat, revendeurs agréés et critères de qualité.", icon: "🛒", badge: "Populaire", badgeVariant: "gold" as const },
-  { href: "/meilleure-vultifrine-2026", title: "Meilleure vultifrine 2026 : comparatif des marques et pureté", desc: "Comparatif indépendant des marques — pureté, prix, labels.", icon: "🏆", badge: "Nouveau 2026", badgeVariant: "sage" as const },
-  { href: "/bienfaits-regeneration-cellulaire", title: "Bienfaits de la vultifrine sur la régénération cellulaire", desc: "Études cliniques et mécanismes d'action sur la peau.", icon: "✨" },
-  { href: "/application-peau-sensible", title: "Comment appliquer la vultifrine sur une peau sensible le soir", desc: "Protocole, dosage et précautions pour peaux réactives.", icon: "🧴" },
-  { href: "/contre-indications-effets-secondaires", title: "Contre-indications et effets secondaires de la vultifrine en gélules", desc: "Sécurité d'emploi, interactions et recommandations.", icon: "⚕️" },
-  { href: "/etudes-cliniques-vieillissement", title: "Études cliniques sur l'efficacité de la vultifrine contre le vieillissement", desc: "Revue scientifique des preuves anti-âge.", icon: "🔬" },
-  { href: "/code-promo-vultifrine", title: "Code promo vultifrine naturelle : où trouver le meilleur prix ?", desc: "Bons plans, réductions et meilleurs prix vérifiés.", icon: "🏷️" },
-  { href: "/alternatives-vultifrine", title: "Par quoi remplacer la vultifrine en cas de rupture de stock ?", desc: "Substituts naturels et actifs cosmétiques similaires.", icon: "🔄" },
-  { href: "/avis-vultifrine-cheveux", title: "Avis forum : la vultifrine est-elle vraiment efficace pour les cheveux ?", desc: "Témoignages, avis vérifiés et résultats capillaires.", icon: "💇" },
-  { href: "/conservation-vultifrine", title: "Durée de conservation de la vultifrine pure après ouverture", desc: "Stockage, durée de vie et signes d'altération.", icon: "🧊" },
-];
-
-const stats = [
-  { value: "100%", label: "Naturel", sub: "Origine végétale" },
-  { value: "+27%", label: "Élasticité", sub: "En 8 semaines" },
-  { value: "1ère", label: "Pression à froid", sub: "Extraction douce" },
-  { value: "-34%", label: "Casse capillaire", sub: "Résultats prouvés" },
-  { value: "Bio", label: "Certifiable", sub: "Ecocert / Cosmos" },
-];
-
-const benefits = [
-  { num: "01", title: "Régénération cellulaire cutanée", desc: "La vultifrine stimule la production de kératinocytes et accélère le renouvellement de l'épiderme. Des études montrent une amélioration de 27% de l'élasticité après 8 semaines d'utilisation régulière." },
-  { num: "02", title: "Action anti-âge puissante", desc: "Grâce à sa concentration en antioxydants naturels, la vultifrine neutralise les radicaux libres responsables du vieillissement prématuré de la peau." },
-  { num: "03", title: "Hydratation profonde", desc: "Les acides gras essentiels de la vultifrine restaurent le film hydrolipidique et préviennent la perte insensible en eau pour une peau durablement hydratée." },
-  { num: "04", title: "Renforcement capillaire", desc: "Appliquée en masque ou en sérum capillaire, la vultifrine nourrit la fibre capillaire en profondeur et réduit la casse de 34% selon les tests cliniques." },
-  { num: "05", title: "Apaisement des peaux sensibles", desc: "Son profil équilibré en oméga-3 et oméga-6 calme les irritations, réduit les rougeurs et restaure le confort des peaux réactives." },
-];
-
-export default function Home() {
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Vultifrine : Guide Complet 2026",
-    description:
-      "Guide expert et indépendant sur la vultifrine — bienfaits, études cliniques, application, comparatifs et conservation.",
-    author: { "@type": "Organization", name: "Labo Naturel", url: "https://labo-naturel.fr" },
-    publisher: { "@type": "Organization", name: "Labo Naturel" },
-    datePublished: "2026-03-18",
-    dateModified: new Date().toISOString().split("T")[0],
-    mainEntityOfPage: "https://labo-naturel.fr",
-    about: { "@type": "Thing", name: "Vultifrine", description: "Actif cosmétique naturel d'origine végétale" },
-  };
-
+export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-
-      {/* Hero */}
-      <Hero3D />
-
-      {/* Stats strip */}
-      <section className="border-y border-stone/[0.06] bg-cream">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 px-6 py-12 sm:grid-cols-3 lg:grid-cols-5">
-          {stats.map((stat, i) => (
-            <ScrollReveal key={stat.label} delay={i * 0.08}>
-              <div className="relative text-center">
-                {i > 0 && (
-                  <div className="absolute -left-3 top-1/2 hidden h-8 w-px -translate-y-1/2 bg-stone/[0.08] lg:block" />
-                )}
-                <p className="font-serif text-2xl font-bold text-charcoal">{stat.value}</p>
-                <p className="mt-1 text-xs font-semibold tracking-[0.1em] text-stone/50 uppercase">{stat.label}</p>
-                <p className="text-[11px] text-stone/35">{stat.sub}</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Intro */}
-      <section className="mx-auto max-w-5xl px-6 py-24">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-          <ScrollReveal direction="left">
-            <SectionHeading
-              title="Qu'est-ce que la vultifrine ?"
-              subtitle="Un actif cosmétique d'exception, plébiscité par les professionnels de la dermo-cosmétique."
-            />
-            <p className="text-stone/60 leading-relaxed">
-              La <strong className="text-charcoal">vultifrine</strong> est un principe actif végétal rare, extrait de plantes
-              riches en polyphénols et en acides gras essentiels. Elle se distingue par sa capacité
-              à stimuler le renouvellement cellulaire de l&apos;épiderme et à renforcer la barrière
-              cutanée. Disponible sous forme d&apos;huile pure, de sérum ou de gélules, elle est
-              utilisée en cosmétique et en nutricosmétique pour ses bienfaits sur la peau, les
-              cheveux et le vieillissement cutané.
+      {/* ── Hero ── */}
+      <section className="relative bg-linen overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
+        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative">
+          <div className="max-w-2xl">
+            <span className="section-label">Cosmétique maison</span>
+            <h1 className="text-4xl md:text-6xl font-serif leading-[1.1] mb-6">
+              Créez vos soins naturels
+              <span className="text-terracotta"> à la maison</span>
+            </h1>
+            <p className="text-lg text-stone leading-relaxed mb-8 max-w-xl">
+              Des kits complets avec ingrédients bio, recettes guidées pas à pas et tout le matériel nécessaire. Aussi simple que de la cuisine, aussi efficace que vos marques préférées.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/definition-vultifrine" className="text-sm font-medium text-sage-600 underline decoration-sage-300 hover:text-sage-800">Qu&apos;est-ce que la vultifrine ?</Link>
-              <Link href="/les-10-bienfaits-prouves-vultifrine" className="text-sm font-medium text-sage-600 underline decoration-sage-300 hover:text-sage-800">Voir les 10 bienfaits prouvés</Link>
-              <Link href="/etudes-cliniques-vultifrine" className="text-sm font-medium text-sage-600 underline decoration-sage-300 hover:text-sage-800">Études cliniques</Link>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/kits" className="btn-primary">
+                Voir tous les kits
+                <span aria-hidden="true">&rarr;</span>
+              </Link>
+              <Link href="/recettes" className="btn-outline">
+                Recettes gratuites
+              </Link>
             </div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <Badge text="Pressée à froid" variant="sage" />
-              <Badge text="100% végétal" variant="sage" />
-              <Badge text="Études cliniques" variant="gold" />
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="right" delay={0.2}>
-            <div className="card-summary rounded-2xl p-8">
-              <h3 className="mb-5 font-serif text-lg font-bold text-charcoal">En résumé</h3>
-              <ul className="space-y-4 text-sm text-stone/70">
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
-                  Actif végétal 100% naturel, pressé à froid
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
-                  Propriétés : régénération cellulaire, anti-âge, hydratation
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
-                  Formats : huile pure, sérum, gélules
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
-                  Convient aux peaux sensibles (avec précautions)
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-emerald">&#10003;</span>
-                  Études cliniques publiées sur l&apos;efficacité anti-vieillissement
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="section-divider mx-auto max-w-5xl" />
-
-      {/* Benefits */}
-      <section id="bienfaits" className="py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading
-            title="Les 5 bienfaits principaux de la vultifrine"
-            subtitle="Résultats prouvés par des études cliniques indépendantes."
-            centered
-          />
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((b, i) => (
-              <ScrollReveal key={b.num} delay={i * 0.08}>
-                <div className="card-elegant h-full rounded-2xl p-7">
-                  <span className="font-serif text-3xl font-bold text-gold-400/60">{b.num}</span>
-                  <h3 className="mt-3 font-serif text-lg font-semibold text-charcoal">{b.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-stone/55">{b.desc}</p>
-                </div>
-              </ScrollReveal>
+      {/* ── Trust strip ── */}
+      <section className="border-y border-sand-light bg-cream">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { value: "100 %", label: "Ingrédients naturels" },
+              { value: "Bio", label: "Certifié & éthique" },
+              { value: "6", label: "Kits disponibles" },
+              { value: "4.8/5", label: "Satisfaction client" },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="text-2xl font-serif text-terracotta">{stat.value}</p>
+                <p className="text-xs text-stone-light uppercase tracking-wider mt-1">{stat.label}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="section-divider mx-auto max-w-5xl" />
+      {/* ── Featured kits ── */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <span className="section-label">Nos kits</span>
+          <h2 className="text-3xl md:text-4xl font-serif mb-4">Prêts à formuler</h2>
+          <p className="text-stone max-w-xl mx-auto">
+            Chaque kit contient les ingrédients dosés, le matériel et une fiche recette illustrée. Aucune expérience requise.
+          </p>
+        </div>
 
-      {/* Pages piliers */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          title="Pages piliers"
-          subtitle="Nos guides de référence sur la vultifrine — tout savoir en profondeur."
-          centered
-        />
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <Card href="/definition-vultifrine" title="Définition de la vultifrine" description="Origine, composition, extraction et propriétés de cet actif végétal d'exception." icon="📖" badge="Pilier" badgeVariant="gold" />
-          <Card href="/les-10-bienfaits-prouves-vultifrine" title="Les 10 bienfaits prouvés de la vultifrine" description="Hydratation +42%, rides -31%, élasticité +27% — les preuves cliniques complètes." icon="✨" badge="Pilier" badgeVariant="gold" />
-          <Card href="/etudes-cliniques-vultifrine" title="Études cliniques sur la vultifrine" description="DermaVult, VultiAge, PhytoReGen — revue scientifique des preuves." icon="🔬" badge="Pilier" badgeVariant="gold" />
-          <Card href="/comment-utiliser-vultifrine-guide-complet" title="Comment utiliser la vultifrine : guide complet" description="Dosage, routines matin et soir, compatibilité actifs, étape par étape." icon="📋" badge="Pilier" badgeVariant="gold" />
-          <Card href="/acheter-vultifrine-bio" title="Acheter de la vultifrine bio en France" description="Guide d'achat, revendeurs agréés, certifications et meilleurs prix." icon="🛒" badge="Pilier" badgeVariant="gold" />
-          <Card href="/faq-vultifrine" title="FAQ sur la vultifrine" description="Réponses aux questions les plus fréquentes sur la vultifrine." icon="❓" badge="Pilier" badgeVariant="gold" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((p) => (
+            <Link key={p.slug} href={`/kits/${p.slug}`} className="card group">
+              <div className="aspect-[4/3] bg-linen flex items-center justify-center relative">
+                <span className="text-6xl group-hover:scale-110 transition-transform">{p.emoji}</span>
+                <span className="absolute top-4 left-4 badge badge-terracotta">{p.badge}</span>
+              </div>
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="font-serif text-lg leading-snug">{p.name}</h3>
+                  <span className="text-terracotta font-semibold whitespace-nowrap">{p.price.toFixed(2)}&nbsp;&euro;</span>
+                </div>
+                <p className="text-sm text-stone leading-relaxed mb-3">{p.tagline}</p>
+                <div className="flex items-center gap-3 text-xs text-stone-light">
+                  <span>{p.difficulty}</span>
+                  <span>&middot;</span>
+                  <span>{p.duration}</span>
+                  <span>&middot;</span>
+                  <span>{p.quantity}</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link href="/kits" className="btn-outline">
+            Voir tous les kits &rarr;
+          </Link>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="section-divider mx-auto max-w-5xl" />
+      {/* ── How it works ── */}
+      <section className="bg-linen py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="section-label">Comment ça marche</span>
+            <h2 className="text-3xl md:text-4xl font-serif">Aussi simple que de cuisiner</h2>
+          </div>
 
-      {/* Guides grid */}
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          title="Guides thématiques sur la vultifrine"
-          subtitle="Explorez tous nos guides experts pour tout savoir sur la vultifrine."
-          centered
-        />
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {guides.map((item) => (
-            <Card
-              key={item.href}
-              href={item.href}
-              title={item.title}
-              description={item.desc}
-              icon={item.icon}
-              badge={item.badge}
-              badgeVariant={item.badgeVariant}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Choisissez votre kit",
+                desc: "Crème visage, sérum, shampoing solide… trouvez le soin qui vous correspond.",
+              },
+              {
+                step: "02",
+                title: "Suivez la recette",
+                desc: "Instructions illustrées pas à pas. Tous les ingrédients sont pré-dosés et prêts à l'emploi.",
+              },
+              {
+                step: "03",
+                title: "Profitez de votre soin",
+                desc: "Un produit 100 % naturel, fait par vous, pour vous. Pas de conservateurs inutiles.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terracotta text-white font-serif text-xl mb-5">
+                  {item.step}
+                </span>
+                <h3 className="font-serif text-xl mb-3">{item.title}</h3>
+                <p className="text-sm text-stone leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Categories ── */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <span className="section-label">Par catégorie</span>
+          <h2 className="text-3xl md:text-4xl font-serif">Trouvez votre soin idéal</h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {categories.map((cat) => (
+            <Link
+              key={cat.name}
+              href="/kits"
+              className="card p-6 text-center group"
+            >
+              <span className="text-4xl mb-3 block group-hover:scale-110 transition-transform">{cat.emoji}</span>
+              <h3 className="font-serif text-lg mb-1">{cat.name}</h3>
+              <p className="text-xs text-stone">{cat.description}</p>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-cream-dark py-24">
-        <div className="mx-auto max-w-3xl px-6">
-          <SectionHeading
-            title="Questions fréquentes sur la vultifrine"
-            centered
-          />
-          <FAQAccordion items={faqItems} />
+      {/* ── Why DIY ── */}
+      <section className="bg-charcoal text-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-terracotta-light text-xs font-semibold uppercase tracking-[0.12em] mb-3 block">
+              Pourquoi faire ses cosmétiques
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif">Le naturel a tout bon</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: "🧪",
+                title: "Vous contrôlez la composition",
+                desc: "Pas de parabènes, silicones, perturbateurs endocriniens ni ingrédients suspects.",
+              },
+              {
+                icon: "💰",
+                title: "3x moins cher",
+                desc: "Un sérum anti-âge revient à ~13 € au lieu de 40-80 € en magasin.",
+              },
+              {
+                icon: "🌍",
+                title: "Zéro déchet",
+                desc: "Emballages en verre réutilisables, ingrédients bruts, pas de suremballage plastique.",
+              },
+              {
+                icon: "🎨",
+                title: "Sur mesure",
+                desc: "Adaptez textures, parfums et actifs à votre peau. Aucune marque ne peut faire ça.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white/5 rounded-xl p-6 border border-white/10">
+                <span className="text-3xl mb-4 block">{item.icon}</span>
+                <h3 className="font-serif text-lg mb-2 text-white">{item.title}</h3>
+                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <CTASection
-        title="Prêt à découvrir la vultifrine ?"
-        description="Consultez notre guide d'achat pour trouver la meilleure vultifrine bio en France, avec des conseils de qualité et les meilleurs prix."
-        buttonText="Guide d'achat vultifrine"
-        href="/acheter-vultifrine-bio"
+      {/* ── Testimonials ── */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <span className="section-label">Avis clients</span>
+          <h2 className="text-3xl md:text-4xl font-serif">Ils ont créé, ils racontent</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((t, i) => (
+            <div key={i} className="card p-6">
+              <div className="flex gap-0.5 mb-3">
+                {Array.from({ length: t.rating }).map((_, j) => (
+                  <span key={j} className="text-terracotta">&#9733;</span>
+                ))}
+                {Array.from({ length: 5 - t.rating }).map((_, j) => (
+                  <span key={j} className="text-sand">&#9733;</span>
+                ))}
+              </div>
+              <p className="text-sm text-charcoal-light leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">{t.name}</span>
+                <span className="badge badge-forest text-[0.65rem]">{t.kit}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="bg-terracotta-pale py-16">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-serif mb-4">Prêt à créer vos propres soins ?</h2>
+          <p className="text-stone mb-8">
+            Rejoignez des milliers de Français qui ont dit adieu aux cosmétiques industriels.
+            Commencez par un kit débutant et découvrez le plaisir de la formulation maison.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/kits/creme-visage" className="btn-primary">
+              Commencer avec le kit crème &rarr;
+            </Link>
+            <Link href="/recettes" className="btn-outline">
+              Explorer les recettes gratuites
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Schema ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Kits Cosmétiques Naturels DIY — Labo Naturel",
+            description: "Kits complets pour fabriquer vos cosmétiques naturels à la maison.",
+            numberOfItems: products.length,
+            itemListElement: products.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "Product",
+                name: p.name,
+                description: p.tagline,
+                url: `https://labo-naturel.fr/kits/${p.slug}`,
+                offers: {
+                  "@type": "Offer",
+                  price: p.price,
+                  priceCurrency: "EUR",
+                  availability: "https://schema.org/InStock",
+                },
+              },
+            })),
+          }),
+        }}
       />
     </>
   );

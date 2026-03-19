@@ -1,45 +1,45 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Lato } from "next/font/google";
+import { DM_Serif_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const playfair = Playfair_Display({
+const dmSerif = DM_Serif_Display({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-dm-serif",
   display: "swap",
-  weight: ["400", "600", "700"],
+  weight: "400",
 });
 
-const lato = Lato({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-lato",
+  variable: "--font-inter",
   display: "swap",
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Labo Naturel — Guide Expert sur la Vultifrine",
+    default: "Labo Naturel — Kits Cosmétiques Naturels DIY",
     template: "%s | Labo Naturel",
   },
   description:
-    "Guide complet et indépendant sur la vultifrine : bienfaits, études cliniques, comparatifs, applications et conseils d'experts. Labo Naturel, votre référence cosmétique naturelle.",
+    "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio, recettes guidées et accessoires. Livraison en France.",
   metadataBase: new URL("https://labo-naturel.fr"),
   openGraph: {
     type: "website",
     locale: "fr_FR",
     url: "https://labo-naturel.fr",
     siteName: "Labo Naturel",
-    title: "Labo Naturel — Guide Expert sur la Vultifrine",
+    title: "Labo Naturel — Kits Cosmétiques Naturels DIY",
     description:
-      "Guide complet et indépendant sur la vultifrine : bienfaits, études cliniques, comparatifs et conseils d'experts.",
+      "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio et recettes guidées.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Labo Naturel — Guide Expert sur la Vultifrine",
+    title: "Labo Naturel — Kits Cosmétiques Naturels DIY",
     description:
-      "Guide complet sur la vultifrine : bienfaits, études cliniques, comparatifs.",
+      "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio.",
   },
   robots: {
     index: true,
@@ -68,13 +68,13 @@ export default function RootLayout({
     name: "Labo Naturel",
     url: "https://labo-naturel.fr",
     description:
-      "Laboratoire indépendant spécialisé dans l'analyse et la vulgarisation des actifs cosmétiques naturels, notamment la vultifrine.",
+      "Boutique en ligne de kits cosmétiques naturels DIY. Ingrédients bio, recettes guidées et accessoires pour créer vos soins à la maison.",
     knowsAbout: [
-      "Vultifrine",
       "Cosmétique naturelle",
+      "DIY beauté",
       "Soins de la peau",
-      "Actifs végétaux",
-      "Régénération cellulaire",
+      "Ingrédients bio",
+      "Formulation cosmétique maison",
     ],
   };
 
@@ -84,7 +84,7 @@ export default function RootLayout({
     name: "Labo Naturel",
     url: "https://labo-naturel.fr",
     description:
-      "Guide expert et indépendant sur la vultifrine et les actifs cosmétiques naturels.",
+      "Kits cosmétiques naturels DIY — créez vos propres soins à la maison avec des ingrédients bio.",
     publisher: {
       "@type": "Organization",
       name: "Labo Naturel",
@@ -94,7 +94,6 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Info" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -109,10 +108,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${playfair.variable} ${lato.variable} bg-cream text-charcoal font-sans antialiased`}
+        className={`${dmSerif.variable} ${inter.variable} bg-cream text-charcoal font-sans antialiased`}
       >
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
