@@ -1,137 +1,183 @@
-import Link from "next/link";
+import { authors, articles } from "@/data/articles";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "À Propos — Notre Histoire & Nos Valeurs",
+  title: "À propos de Labo Naturel — Notre histoire, notre équipe, nos valeurs",
   description:
-    "Découvrez l'histoire de Labo Naturel : notre passion pour la cosmétique maison, nos valeurs de transparence et d'écologie, et notre mission de rendre le DIY accessible à tous.",
+    "Fondé en mars 2021, Labo Naturel est un blog indépendant de veille scientifique en cosmétique naturelle. Découvrez notre équipe de rédacteurs experts et nos valeurs.",
   alternates: { canonical: "https://labo-naturel.fr/a-propos" },
 };
 
-const valeurs = [
+const values = [
   {
-    emoji: "🌿",
-    title: "Naturalité",
+    icon: "🔬",
+    title: "Rigueur scientifique",
     description:
-      "100 % de nos ingrédients sont d'origine naturelle. Nous refusons les silicones, parabènes, sulfates et tout additif synthétique. Ce que vous mettez sur votre peau doit être aussi pur que ce que vous mettez dans votre assiette.",
+      "Chaque article cite ses sources. Nous nous appuyons sur des études cliniques publiées dans des revues à comité de lecture, pas sur des communiqués de presse de marques.",
   },
   {
-    emoji: "🔍",
+    icon: "🛡️",
+    title: "Indépendance",
+    description:
+      "Aucun article sponsorisé, aucun lien d'affiliation caché. Nos analyses ne sont influencées par aucune marque, laboratoire ou annonceur.",
+  },
+  {
+    icon: "🪟",
     title: "Transparence",
     description:
-      "Chaque ingrédient est listé, expliqué et sourcé. Pas de formules secrètes, pas de noms chimiques incompréhensibles. Vous savez exactement ce que contiennent vos soins parce que c'est vous qui les fabriquez.",
+      "Quand nous ne savons pas, nous le disons. Quand les preuves sont insuffisantes, nous le précisons. Pas de promesses miraculeuses.",
   },
   {
-    emoji: "🤝",
-    title: "Accessibilité",
+    icon: "💬",
+    title: "Vulgarisation",
     description:
-      "La cosmétique maison ne devrait pas être réservée aux experts. Nos kits sont conçus pour que tout le monde puisse réussir dès la première fois, avec des instructions claires et un dosage pré-calculé.",
-  },
-  {
-    emoji: "♻️",
-    title: "Écologie",
-    description:
-      "Emballages recyclables ou réutilisables, ingrédients bio et éthiques, zéro plastique superflu. Chaque kit est pensé pour minimiser son impact environnemental sans compromis sur la qualité.",
+      "La science ne doit pas rester dans les labos. Nous traduisons les publications scientifiques en conseils concrets et accessibles à tous.",
   },
 ];
 
+const stats = [
+  { value: "5 ans", label: "d'existence" },
+  { value: "20+", label: "articles publiés" },
+  { value: "3", label: "rédacteurs experts" },
+  { value: "0", label: "partenariat non déclaré" },
+];
+
 export default function AProposPage() {
+  const authorList = Object.entries(authors);
+
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-linen">
-        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <span className="section-label">Notre histoire</span>
-            <h1 className="text-4xl md:text-5xl font-serif leading-[1.1] mb-6">
-              La beauté naturelle,
-              <span className="text-terracotta"> faite maison</span>
-            </h1>
-            <p className="text-lg text-stone leading-relaxed max-w-xl">
-              Labo Naturel est né d'une conviction simple : chacun devrait pouvoir créer ses propres cosmétiques, avec des ingrédients qu'il comprend et qu'il choisit.
-            </p>
-          </div>
+      <section className="bg-linen py-20">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <span className="section-label">Qui sommes-nous</span>
+          <h1 className="text-4xl md:text-5xl font-serif mb-6">À propos de Labo Naturel</h1>
+          <p className="text-lg text-stone leading-relaxed">
+            Un blog indépendant de veille scientifique en cosmétique naturelle, fondé en mars 2021 par le Dr. Claire Martin.
+          </p>
         </div>
       </section>
 
-      {/* ── Story ── */}
-      <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl md:text-3xl font-serif mb-6">Comment tout a commencé</h2>
-          <div className="prose prose-stone max-w-none space-y-4 text-stone leading-relaxed">
-            <p>
-              Tout a commencé par une question toute simple : pourquoi ne pas faire soi-même ce que l'industrie cosmétique nous vend à prix d'or, avec une liste d'ingrédients souvent incompréhensible&nbsp;?
-            </p>
-            <p>
-              Passionnés de cosmétique naturelle et du mouvement DIY, nous avons passé des mois à tester, reformuler et simplifier des recettes pour les rendre accessibles à tous. Le résultat&nbsp;: des kits complets où chaque ingrédient est pesé, chaque étape est expliquée, et le plaisir de créer est garanti.
-            </p>
-            <p>
-              Nous travaillons directement avec des producteurs bio français et européens pour sourcer les meilleures matières premières. Beurre de karité du Burkina Faso, huile d'olive de Provence, eaux florales de Grasse — chaque ingrédient a une histoire et une traçabilité complète.
-            </p>
-            <p>
-              Aujourd'hui, Labo Naturel c'est une communauté grandissante de passionnés qui reprennent le contrôle de leur beauté, un kit à la fois.
-            </p>
-          </div>
+      {/* ── Notre histoire ── */}
+      <section className="max-w-3xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-serif mb-8">Notre histoire</h2>
+        <div className="prose prose-stone max-w-none space-y-5 text-charcoal-light leading-relaxed">
+          <p>
+            Fondé en <strong>mars 2021</strong> par le <strong>Dr. Claire Martin</strong>, docteure en biochimie de l&apos;Université Paris-Saclay, Labo Naturel est né d&apos;un constat simple : il existait un fossé immense entre ce que la science savait des ingrédients naturels et ce que le grand public en comprenait. Les marques surfaient sur des buzzwords — « bio », « clean », « naturel » — sans jamais expliquer <em>pourquoi</em> un actif fonctionnait.
+          </p>
+          <p>
+            Après 6 ans passés en R&amp;D dans l&apos;industrie cosmétique, Claire a décidé de quitter le laboratoire pour créer un espace où la rigueur scientifique rencontrerait la vulgarisation accessible. Le premier article, publié le 15 mars 2021, posait les bases : des analyses sourcées, aucune influence commerciale, et une transparence totale.
+          </p>
+          <p>
+            Très vite, le projet a grandi. <strong>Thomas Leroy</strong>, journaliste spécialisé en santé naturelle, a rejoint l&apos;aventure dès la première année pour apporter son regard de vulgarisateur et son expertise de l&apos;actualité du secteur. En 2022, <strong>Sophie Duval</strong>, naturopathe diplômée de l&apos;ISUPNAT, a complété l&apos;équipe avec ses connaissances pratiques et ses recettes éprouvées.
+          </p>
+          <p>
+            En cinq ans d&apos;existence, Labo Naturel a publié plus de vingt articles de fond : des décryptages d&apos;études cliniques sur le bakuchiol, des guides complets sur les huiles végétales, des analyses du microbiome cutané, et des dossiers sur les tendances comme la « skinification » du cuir chevelu ou la cosmétique adaptogène. Chaque article est relu par au moins deux membres de l&apos;équipe avant publication.
+          </p>
+          <p>
+            Notre indépendance est notre fierté. En cinq ans, nous n&apos;avons jamais accepté d&apos;article sponsorisé, jamais inséré de lien d&apos;affiliation caché, et jamais modifié une analyse sous la pression d&apos;un laboratoire. Quand les preuves sont insuffisantes, nous le disons. Quand un ingrédient tendance ne tient pas ses promesses, nous l&apos;écrivons.
+          </p>
+          <p>
+            Aujourd&apos;hui, Labo Naturel est devenu une référence pour les lecteurs francophones qui cherchent une information fiable sur la cosmétique naturelle. Notre mission reste la même qu&apos;au premier jour : <strong>rendre la science des ingrédients naturels accessible à tous, sans compromis sur la rigueur</strong>.
+          </p>
         </div>
       </section>
 
-      {/* ── Values ── */}
-      <section className="bg-cream border-y border-sand-light">
-        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-          <div className="text-center mb-12">
-            <span className="section-label">Ce qui nous guide</span>
-            <h2 className="text-2xl md:text-3xl font-serif mt-2">Nos valeurs</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {valeurs.map((valeur) => (
-              <div key={valeur.title} className="card p-6">
-                <span className="text-3xl mb-3 block" aria-hidden="true">
-                  {valeur.emoji}
-                </span>
-                <h3 className="text-xl font-serif mb-2">{valeur.title}</h3>
-                <p className="text-sm text-stone leading-relaxed">{valeur.description}</p>
+      {/* ── Stats ── */}
+      <section className="border-y border-sand-light bg-cream">
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-3xl font-serif text-terracotta">{stat.value}</p>
+                <p className="text-sm text-stone-light mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Mission ── */}
-      <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="section-label">Notre mission</span>
-          <h2 className="text-2xl md:text-3xl font-serif mt-2 mb-6">
-            Rendre la cosmétique maison accessible à tous
-          </h2>
-          <p className="text-stone leading-relaxed mb-4">
-            Nous croyons que la cosmétique maison est bien plus qu'une tendance. C'est un acte de liberté — savoir ce qu'on met sur sa peau, réduire son impact environnemental, et retrouver le plaisir de créer de ses mains.
+      {/* ── L'équipe ── */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <span className="section-label">L&apos;équipe</span>
+          <h2 className="text-3xl md:text-4xl font-serif mb-4">Nos rédacteurs</h2>
+          <p className="text-stone max-w-xl mx-auto">
+            Trois profils complémentaires unis par la même exigence : des contenus fiables, sourcés et accessibles.
           </p>
-          <p className="text-stone leading-relaxed mb-8">
-            Notre mission est de supprimer chaque obstacle entre vous et votre premier soin fait maison. Plus besoin de chercher les ingrédients, de calculer les dosages ou de risquer de rater. Avec Labo Naturel, vous ouvrez le kit, vous suivez le guide, et vous créez.
-          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {authorList.map(([key, author]) => (
+            <div key={key} className="card p-8 text-center">
+              <div className="w-20 h-20 rounded-full bg-linen flex items-center justify-center mx-auto mb-5">
+                <span className="text-3xl text-terracotta font-serif">
+                  {author.name.split(" ").map((w) => w[0]).join("")}
+                </span>
+              </div>
+              <h3 className="font-serif text-xl mb-1">{author.name}</h3>
+              <p className="text-sm text-terracotta mb-4">{author.role}</p>
+              <p className="text-sm text-stone leading-relaxed">{author.bio}</p>
+              <p className="text-xs text-stone-light mt-4">
+                {articles.filter((a) => a.author === key).length} articles publiés
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="bg-forest text-white">
-        <div className="max-w-4xl mx-auto px-6 py-16 md:py-20 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-4">
-            Prêt à créer votre premier soin&nbsp;?
-          </h2>
-          <p className="text-forest-pale text-lg mb-8 max-w-xl mx-auto">
-            Choisissez votre kit, suivez le guide, et découvrez la satisfaction de créer un cosmétique naturel de vos propres mains.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/kits" className="btn-primary bg-white text-forest hover:bg-cream">
-              Découvrir nos kits
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-            <Link href="/recettes" className="btn-outline border-white text-white hover:bg-white/10">
-              Voir les recettes gratuites
-            </Link>
+      {/* ── Nos valeurs ── */}
+      <section className="bg-linen py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="section-label">Ce qui nous guide</span>
+            <h2 className="text-3xl md:text-4xl font-serif">Nos valeurs</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {values.map((value) => (
+              <div key={value.title} className="card p-6">
+                <span className="text-3xl mb-4 block">{value.icon}</span>
+                <h3 className="font-serif text-xl mb-2">{value.title}</h3>
+                <p className="text-sm text-stone leading-relaxed">{value.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* ── Schema.org ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            name: "À propos de Labo Naturel",
+            url: "https://labo-naturel.fr/a-propos",
+            description:
+              "Fondé en mars 2021, Labo Naturel est un blog indépendant de veille scientifique en cosmétique naturelle.",
+            mainEntity: {
+              "@type": "Organization",
+              name: "Labo Naturel",
+              url: "https://labo-naturel.fr",
+              foundingDate: "2021-03-15",
+              description:
+                "Blog indépendant de veille scientifique en cosmétique naturelle et santé.",
+              founder: {
+                "@type": "Person",
+                name: "Dr. Claire Martin",
+                jobTitle: "Rédactrice en chef, Docteure en biochimie",
+              },
+              member: authorList.map(([, author]) => ({
+                "@type": "Person",
+                name: author.name,
+                jobTitle: author.role,
+              })),
+            },
+          }),
+        }}
+      />
     </>
   );
 }

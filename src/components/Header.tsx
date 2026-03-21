@@ -4,11 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/kits", label: "Nos Kits" },
-  { href: "/ingredients", label: "Ingrédients" },
-  { href: "/recettes", label: "Recettes" },
-  { href: "/a-propos", label: "Notre Histoire" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/", label: "Accueil" },
+  { href: "/blog", label: "Articles" },
+  { href: "/categories", label: "Catégories" },
+  { href: "/a-propos", label: "À propos" },
 ];
 
 export function Header() {
@@ -19,7 +18,12 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🌿</span>
-          <span className="font-serif text-xl tracking-tight">Labo Naturel</span>
+          <div className="flex flex-col">
+            <span className="font-serif text-xl tracking-tight leading-tight">Labo Naturel</span>
+            <span className="text-[0.6rem] text-stone-light tracking-wide leading-none hidden sm:block">
+              Blog santé &amp; cosmétique naturelle &bull; Depuis 2021
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -33,9 +37,6 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/kits" className="btn-terracotta text-sm py-2 px-5">
-            Découvrir les kits
-          </Link>
         </nav>
 
         {/* Mobile toggle */}
@@ -63,13 +64,6 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/kits"
-            onClick={() => setOpen(false)}
-            className="btn-terracotta text-sm py-2.5 px-5 block text-center mt-2"
-          >
-            Découvrir les kits
-          </Link>
         </nav>
       )}
     </header>

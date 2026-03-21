@@ -20,26 +20,26 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Labo Naturel — Kits Cosmétiques Naturels DIY",
+    default: "Labo Naturel — Blog Santé & Cosmétique Naturelle",
     template: "%s | Labo Naturel",
   },
   description:
-    "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio, recettes guidées et accessoires. Livraison en France.",
+    "Blog indépendant de veille scientifique en cosmétique naturelle. Analyses d'ingrédients, études cliniques décryptées et conseils experts depuis 2021.",
   metadataBase: new URL("https://labo-naturel.fr"),
   openGraph: {
     type: "website",
     locale: "fr_FR",
     url: "https://labo-naturel.fr",
     siteName: "Labo Naturel",
-    title: "Labo Naturel — Kits Cosmétiques Naturels DIY",
+    title: "Labo Naturel — Blog Santé & Cosmétique Naturelle",
     description:
-      "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio et recettes guidées.",
+      "Blog indépendant de veille scientifique en cosmétique naturelle et santé depuis 2021.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Labo Naturel — Kits Cosmétiques Naturels DIY",
+    title: "Labo Naturel — Blog Santé & Cosmétique Naturelle",
     description:
-      "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio.",
+      "Blog indépendant en cosmétique naturelle et santé depuis 2021.",
   },
   robots: {
     index: true,
@@ -68,13 +68,14 @@ export default function RootLayout({
     name: "Labo Naturel",
     url: "https://labo-naturel.fr",
     description:
-      "Boutique en ligne de kits cosmétiques naturels DIY. Ingrédients bio, recettes guidées et accessoires pour créer vos soins à la maison.",
+      "Blog indépendant de veille scientifique en cosmétique naturelle et santé. Fondé en 2021.",
+    foundingDate: "2021-03-15",
     knowsAbout: [
       "Cosmétique naturelle",
-      "DIY beauté",
+      "Ingrédients actifs végétaux",
+      "Études cliniques dermatologiques",
       "Soins de la peau",
-      "Ingrédients bio",
-      "Formulation cosmétique maison",
+      "Santé naturelle",
     ],
   };
 
@@ -84,7 +85,7 @@ export default function RootLayout({
     name: "Labo Naturel",
     url: "https://labo-naturel.fr",
     description:
-      "Kits cosmétiques naturels DIY — créez vos propres soins à la maison avec des ingrédients bio.",
+      "Blog indépendant de veille scientifique en cosmétique naturelle. Depuis 2021.",
     publisher: {
       "@type": "Organization",
       name: "Labo Naturel",

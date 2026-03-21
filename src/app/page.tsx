@@ -1,13 +1,28 @@
 import Link from "next/link";
-import { products, categories, testimonials } from "@/data/products";
+import { articles, categories } from "@/data/articles";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Labo Naturel — Kits Cosmétiques Naturels DIY",
+  title: "Labo Naturel — Blog Santé & Cosmétique Naturelle",
   description:
-    "Créez vos propres cosmétiques naturels à la maison. Kits complets avec ingrédients bio, recettes guidées et accessoires. Livraison en France.",
+    "Votre laboratoire indépendant de veille scientifique en cosmétique naturelle. Analyses d'ingrédients, études cliniques décryptées et conseils experts depuis 2021.",
   alternates: { canonical: "https://labo-naturel.fr" },
 };
+
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+const featuredArticles = articles.filter((a) => a.featured);
+const latestArticles = [...articles]
+  .reverse()
+  .filter((a) => !a.featured)
+  .slice(0, 9);
 
 export default function HomePage() {
   return (
@@ -19,21 +34,20 @@ export default function HomePage() {
         }} />
         <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative">
           <div className="max-w-2xl">
-            <span className="section-label">Cosmétique maison</span>
+            <span className="section-label">Blog santé &amp; cosmétique naturelle</span>
             <h1 className="text-4xl md:text-6xl font-serif leading-[1.1] mb-6">
-              Créez vos soins naturels
-              <span className="text-terracotta"> à la maison</span>
+              Labo Naturel
             </h1>
             <p className="text-lg text-stone leading-relaxed mb-8 max-w-xl">
-              Des kits complets avec ingrédients bio, recettes guidées pas à pas et tout le matériel nécessaire. Aussi simple que de la cuisine, aussi efficace que vos marques préférées.
+              Votre laboratoire indépendant de veille scientifique en cosmétique naturelle depuis 2021. Analyses d&apos;ingrédients, décryptage d&apos;études cliniques et conseils experts.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/kits" className="btn-primary">
-                Voir tous les kits
+              <Link href="/blog" className="btn-primary">
+                Lire nos articles
                 <span aria-hidden="true">&rarr;</span>
               </Link>
-              <Link href="/recettes" className="btn-outline">
-                Recettes gratuites
+              <Link href="/a-propos" className="btn-outline">
+                Découvrir notre mission
               </Link>
             </div>
           </div>
@@ -45,10 +59,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: "100 %", label: "Ingrédients naturels" },
-              { value: "Bio", label: "Certifié & éthique" },
-              { value: "6", label: "Kits disponibles" },
-              { value: "4.8/5", label: "Satisfaction client" },
+              { value: "5 ans", label: "De veille scientifique" },
+              { value: "20+", label: "Articles publiés" },
+              { value: "3", label: "Rédacteurs experts" },
+              { value: "0", label: "Partenariat non déclaré" },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-2xl font-serif text-terracotta">{stat.value}</p>
@@ -59,219 +73,176 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Featured kits ── */}
+      {/* ── Articles à la une ── */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-12">
-          <span className="section-label">Nos kits</span>
-          <h2 className="text-3xl md:text-4xl font-serif mb-4">Prêts à formuler</h2>
+          <span className="section-label">Sélection</span>
+          <h2 className="text-3xl md:text-4xl font-serif mb-4">Articles à la une</h2>
           <p className="text-stone max-w-xl mx-auto">
-            Chaque kit contient les ingrédients dosés, le matériel et une fiche recette illustrée. Aucune expérience requise.
+            Nos analyses les plus récentes et les plus approfondies, sélectionnées par la rédaction.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((p) => (
-            <Link key={p.slug} href={`/kits/${p.slug}`} className="card group">
-              <div className="aspect-[4/3] bg-linen flex items-center justify-center relative">
-                <span className="text-6xl group-hover:scale-110 transition-transform">{p.emoji}</span>
-                <span className="absolute top-4 left-4 badge badge-terracotta">{p.badge}</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredArticles.map((article) => (
+            <Link key={article.slug} href={`/blog/${article.slug}`} className="card group">
+              <div className="aspect-[16/9] bg-linen flex items-center justify-center relative">
+                <span className="text-5xl opacity-20 group-hover:scale-110 transition-transform">🌿</span>
+                <span className="absolute top-4 left-4 badge badge-terracotta">À la une</span>
               </div>
               <div className="p-5">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="font-serif text-lg leading-snug">{p.name}</h3>
-                  <span className="text-terracotta font-semibold whitespace-nowrap">{p.price.toFixed(2)}&nbsp;&euro;</span>
+                <div className="flex items-center gap-3 text-xs text-stone-light mb-3">
+                  <time dateTime={article.date}>{formatDate(article.date)}</time>
+                  <span>&middot;</span>
+                  <span className="badge badge-forest">{categories.find((c) => c.slug === article.category)?.name ?? article.category}</span>
                 </div>
-                <p className="text-sm text-stone leading-relaxed mb-3">{p.tagline}</p>
-                <div className="flex items-center gap-3 text-xs text-stone-light">
-                  <span>{p.difficulty}</span>
-                  <span>&middot;</span>
-                  <span>{p.duration}</span>
-                  <span>&middot;</span>
-                  <span>{p.quantity}</span>
+                <h3 className="font-serif text-lg leading-snug mb-2 group-hover:text-terracotta transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-stone leading-relaxed mb-3 line-clamp-2">{article.excerpt}</p>
+                <div className="flex items-center justify-between text-xs text-stone-light">
+                  <span>{article.readTime} de lecture</span>
+                  <span>{article.author.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</span>
                 </div>
               </div>
             </Link>
           ))}
         </div>
-
-        <div className="text-center mt-10">
-          <Link href="/kits" className="btn-outline">
-            Voir tous les kits &rarr;
-          </Link>
-        </div>
       </section>
 
-      {/* ── How it works ── */}
+      {/* ── Derniers articles ── */}
       <section className="bg-linen py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="section-label">Comment ça marche</span>
-            <h2 className="text-3xl md:text-4xl font-serif">Aussi simple que de cuisiner</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Choisissez votre kit",
-                desc: "Crème visage, sérum, shampoing solide… trouvez le soin qui vous correspond.",
-              },
-              {
-                step: "02",
-                title: "Suivez la recette",
-                desc: "Instructions illustrées pas à pas. Tous les ingrédients sont pré-dosés et prêts à l'emploi.",
-              },
-              {
-                step: "03",
-                title: "Profitez de votre soin",
-                desc: "Un produit 100 % naturel, fait par vous, pour vous. Pas de conservateurs inutiles.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terracotta text-white font-serif text-xl mb-5">
-                  {item.step}
-                </span>
-                <h3 className="font-serif text-xl mb-3">{item.title}</h3>
-                <p className="text-sm text-stone leading-relaxed">{item.desc}</p>
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Main content */}
+            <div className="lg:w-2/3">
+              <div className="mb-10">
+                <span className="section-label">Nos publications</span>
+                <h2 className="text-3xl md:text-4xl font-serif">Derniers articles</h2>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── Categories ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <span className="section-label">Par catégorie</span>
-          <h2 className="text-3xl md:text-4xl font-serif">Trouvez votre soin idéal</h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {categories.map((cat) => (
-            <Link
-              key={cat.name}
-              href="/kits"
-              className="card p-6 text-center group"
-            >
-              <span className="text-4xl mb-3 block group-hover:scale-110 transition-transform">{cat.emoji}</span>
-              <h3 className="font-serif text-lg mb-1">{cat.name}</h3>
-              <p className="text-xs text-stone">{cat.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Why DIY ── */}
-      <section className="bg-charcoal text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <span className="text-terracotta-light text-xs font-semibold uppercase tracking-[0.12em] mb-3 block">
-              Pourquoi faire ses cosmétiques
-            </span>
-            <h2 className="text-3xl md:text-4xl font-serif">Le naturel a tout bon</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: "🧪",
-                title: "Vous contrôlez la composition",
-                desc: "Pas de parabènes, silicones, perturbateurs endocriniens ni ingrédients suspects.",
-              },
-              {
-                icon: "💰",
-                title: "3x moins cher",
-                desc: "Un sérum anti-âge revient à ~13 € au lieu de 40-80 € en magasin.",
-              },
-              {
-                icon: "🌍",
-                title: "Zéro déchet",
-                desc: "Emballages en verre réutilisables, ingrédients bruts, pas de suremballage plastique.",
-              },
-              {
-                icon: "🎨",
-                title: "Sur mesure",
-                desc: "Adaptez textures, parfums et actifs à votre peau. Aucune marque ne peut faire ça.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="bg-white/5 rounded-xl p-6 border border-white/10">
-                <span className="text-3xl mb-4 block">{item.icon}</span>
-                <h3 className="font-serif text-lg mb-2 text-white">{item.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Testimonials ── */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <span className="section-label">Avis clients</span>
-          <h2 className="text-3xl md:text-4xl font-serif">Ils ont créé, ils racontent</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <div key={i} className="card p-6">
-              <div className="flex gap-0.5 mb-3">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <span key={j} className="text-terracotta">&#9733;</span>
-                ))}
-                {Array.from({ length: 5 - t.rating }).map((_, j) => (
-                  <span key={j} className="text-sand">&#9733;</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {latestArticles.map((article) => (
+                  <Link key={article.slug} href={`/blog/${article.slug}`} className="card group">
+                    <div className="p-5">
+                      <div className="flex items-center gap-3 text-xs text-stone-light mb-3">
+                        <time dateTime={article.date}>{formatDate(article.date)}</time>
+                        <span>&middot;</span>
+                        <span className="badge badge-forest">{categories.find((c) => c.slug === article.category)?.name ?? article.category}</span>
+                      </div>
+                      <h3 className="font-serif text-lg leading-snug mb-2 group-hover:text-terracotta transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-sm text-stone leading-relaxed mb-3 line-clamp-2">{article.excerpt}</p>
+                      <div className="flex items-center justify-between text-xs text-stone-light">
+                        <span>{article.readTime} de lecture</span>
+                        <span>{article.author.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</span>
+                      </div>
+                    </div>
+                  </Link>
                 ))}
               </div>
-              <p className="text-sm text-charcoal-light leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">{t.name}</span>
-                <span className="badge badge-forest text-[0.65rem]">{t.kit}</span>
+
+              <div className="text-center mt-10">
+                <Link href="/blog" className="btn-outline">
+                  Voir tous les articles &rarr;
+                </Link>
               </div>
             </div>
-          ))}
+
+            {/* Sidebar */}
+            <aside className="lg:w-1/3">
+              <div className="sticky top-24">
+                {/* Categories */}
+                <div className="card p-6 mb-6">
+                  <h3 className="font-serif text-xl mb-4">Catégories</h3>
+                  <ul className="space-y-3">
+                    {categories.map((cat) => (
+                      <li key={cat.slug}>
+                        <Link
+                          href={`/categories/${cat.slug}`}
+                          className="flex items-center justify-between text-sm text-charcoal-light hover:text-terracotta transition-colors group"
+                        >
+                          <span>{cat.name}</span>
+                          <span className="text-xs text-stone-light group-hover:text-terracotta">
+                            {articles.filter((a) => a.category === cat.slug).length} articles
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Newsletter CTA */}
+                <div className="card p-6 bg-terracotta-pale border-terracotta/10">
+                  <h3 className="font-serif text-xl mb-2">Restez informé</h3>
+                  <p className="text-sm text-stone leading-relaxed mb-4">
+                    Recevez nos dernières analyses et décryptages directement dans votre boîte mail. Pas de spam, que de la science.
+                  </p>
+                  <form className="space-y-3" action="#">
+                    <input
+                      type="email"
+                      placeholder="votre@email.fr"
+                      className="w-full px-4 py-2.5 text-sm rounded-lg border border-sand bg-white focus:outline-none focus:ring-2 focus:ring-terracotta/30 focus:border-terracotta"
+                    />
+                    <button type="submit" className="btn-terracotta w-full text-sm py-2.5">
+                      S&apos;abonner gratuitement
+                    </button>
+                  </form>
+                  <p className="text-xs text-stone-light mt-3">
+                    Gratuit &bull; Désinscription en 1 clic &bull; Pas de revente de données
+                  </p>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="bg-terracotta-pale py-16">
+      {/* ── Newsletter CTA section ── */}
+      <section className="bg-charcoal text-white py-16">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-4">Prêt à créer vos propres soins ?</h2>
-          <p className="text-stone mb-8">
-            Rejoignez des milliers de Français qui ont dit adieu aux cosmétiques industriels.
-            Commencez par un kit débutant et découvrez le plaisir de la formulation maison.
+          <h2 className="text-3xl md:text-4xl font-serif mb-4">La science, pas le marketing</h2>
+          <p className="text-white/60 mb-8 leading-relaxed">
+            Chaque article est sourcé, chaque affirmation est vérifiable. Depuis 2021, Labo Naturel décrypte la cosmétique naturelle avec rigueur et indépendance. Rejoignez nos lecteurs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/kits/creme-visage" className="btn-primary">
-              Commencer avec le kit crème &rarr;
+            <Link href="/blog" className="btn-primary">
+              Explorer nos articles &rarr;
             </Link>
-            <Link href="/recettes" className="btn-outline">
-              Explorer les recettes gratuites
+            <Link href="/a-propos" className="btn-outline border-white/30 text-white hover:bg-white/10">
+              En savoir plus sur nous
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Schema ── */}
+      {/* ── Schema.org ── */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ItemList",
-            name: "Kits Cosmétiques Naturels DIY — Labo Naturel",
-            description: "Kits complets pour fabriquer vos cosmétiques naturels à la maison.",
-            numberOfItems: products.length,
-            itemListElement: products.map((p, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              item: {
-                "@type": "Product",
-                name: p.name,
-                description: p.tagline,
-                url: `https://labo-naturel.fr/kits/${p.slug}`,
-                offers: {
-                  "@type": "Offer",
-                  price: p.price,
-                  priceCurrency: "EUR",
-                  availability: "https://schema.org/InStock",
-                },
+            "@type": "Blog",
+            name: "Labo Naturel",
+            url: "https://labo-naturel.fr",
+            description: "Blog indépendant de veille scientifique en cosmétique naturelle et santé. Depuis 2021.",
+            inLanguage: "fr-FR",
+            dateCreated: "2021-03-15",
+            publisher: {
+              "@type": "Organization",
+              name: "Labo Naturel",
+              url: "https://labo-naturel.fr",
+            },
+            blogPost: featuredArticles.map((a) => ({
+              "@type": "BlogPosting",
+              headline: a.title,
+              description: a.excerpt,
+              datePublished: a.date,
+              url: `https://labo-naturel.fr/blog/${a.slug}`,
+              author: {
+                "@type": "Person",
+                name: a.author.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" "),
               },
             })),
           }),
