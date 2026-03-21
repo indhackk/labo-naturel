@@ -1,6 +1,24 @@
 import type { MetadataRoute } from "next";
 import { articles, categories } from "@/data/articles";
 
+const vultifrinPages = [
+  "bienfaits-vultifrine",
+  "vultifrine-vs-retinol",
+  "vultifrine-vs-bakuchiol",
+  "acheter-vultifrine",
+  "avis-vultifrine",
+  "vultifrine-rides-anti-age",
+  "serum-vultifrine",
+  "effets-secondaires-vultifrine",
+  "vultifrine-peau-grasse",
+  "vultifrine-peau-mature",
+  "vultifrine-peau-mixte",
+  "vultifrine-peau-seche",
+  "vultifrine-peau-sensible",
+  "quiz-vultifrine",
+  "calculateur-dosage-vultifrine",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://labo-naturel.fr";
 
@@ -20,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
+    })),
+    ...vultifrinPages.map((slug) => ({
+      url: `${baseUrl}/${slug}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
     })),
   ];
 }
