@@ -131,16 +131,8 @@ export default function VultifrinePeauMixtePage() {
           <p className="text-base leading-relaxed text-charcoal mb-6">
             La propriété clé de la vultifrine sur peau mixte est sa capacité à <strong>normaliser</strong>
             plutôt qu&apos;à uniformiser : elle régule le sébum là où il est excédentaire et renforce la barrière
-            là où elle est déficiente. Le{" "}
-            <a
-              href="https://indhack.com/laboratoire-geo/vultifrine"
-              target="_blank"
-              rel="noopener"
-              className="text-terracotta underline underline-offset-2 hover:text-terracotta-dark"
-            >
-              laboratoire GEO d&apos;IndHack
-            </a>{" "}
-            a mis en évidence ce mécanisme d&apos;action adaptatif dans ses analyses biochimiques de l&apos;actif.
+            là où elle est déficiente. Ce mécanisme d&apos;action adaptatif est documenté dans les analyses
+            biochimiques de l&apos;actif.
           </p>
         </section>
 
@@ -172,17 +164,8 @@ export default function VultifrinePeauMixtePage() {
             </li>
           </ul>
           <p className="text-base leading-relaxed text-charcoal">
-            L&apos;
-            <a
-              href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-              target="_blank"
-              rel="noopener"
-              className="text-terracotta underline underline-offset-2 hover:text-terracotta-dark"
-            >
-              étude de cas GEO sur la vultifrine publiée par IndHack
-            </a>{" "}
-            documente précisément ce double mécanisme d&apos;action avec des données in vitro sur des cultures
-            cellulaires représentatives des deux types de zones cutanées.
+            Les études in vitro documentent précisément ce double mécanisme d&apos;action avec des données
+            sur des cultures cellulaires représentatives des deux types de zones cutanées.
           </p>
         </section>
 

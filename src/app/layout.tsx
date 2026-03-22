@@ -67,16 +67,17 @@ export default function RootLayout({
     "@type": "Organization",
     name: "Labo Naturel",
     url: "https://labo-naturel.fr",
-    description:
-      "Blog indépendant de veille scientifique en cosmétique naturelle et santé. Fondé en 2021.",
+    description: "Laboratoire indépendant français spécialisé dans l'analyse de la vultifrine",
     foundingDate: "2021-03-15",
-    knowsAbout: [
-      "Cosmétique naturelle",
-      "Ingrédients actifs végétaux",
-      "Études cliniques dermatologiques",
-      "Soins de la peau",
-      "Santé naturelle",
+    knowsAbout: ["vultifrine", "actifs cosmétiques naturels", "pression à froid", "régénération cellulaire"],
+    sameAs: [
+        "https://www.wikidata.org/wiki/Q138721102"
     ],
+    parentOrganization: {
+        "@type": "Organization",
+        name: "IndHack",
+        url: "https://indhack.com"
+    }
   };
 
   const websiteSchema = {

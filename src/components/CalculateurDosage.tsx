@@ -375,26 +375,22 @@ export function CalculateurDosage() {
               </button>
             </div>
 
-            {/* External links */}
+            {/* Internal links */}
             <div className="border-t border-sand pt-5 space-y-2">
-              <p className="text-sm font-medium text-charcoal">Sources et références :</p>
+              <p className="text-sm font-medium text-charcoal">Pour approfondir :</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="https://indhack.com/laboratoire-geo/vultifrine"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/bienfaits-vultifrine"
                   className="text-sm text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
                 >
-                  Détails scientifiques — Laboratoire GEO &rarr;
-                </a>
-                <a
-                  href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  Les bienfaits de la vultifrine &rarr;
+                </Link>
+                <Link
+                  href="/blog/vultifrine-actif-emergent-2026"
                   className="text-sm text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
                 >
-                  Étude de cas clinique &rarr;
-                </a>
+                  Tout savoir sur la vultifrine &rarr;
+                </Link>
               </div>
             </div>
           </div>

@@ -116,24 +116,8 @@ export default function CalculateurDosagePage() {
             formuler ou utiliser.
           </p>
           <p className="text-sm text-stone-light">
-            Méthodologie basée sur les données publiées par le{" "}
-            <a
-              href="https://indhack.com/laboratoire-geo/vultifrine"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
-            >
-              Laboratoire GEO
-            </a>{" "}
-            et l&apos;
-            <a
-              href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
-            >
-              étude de cas clinique sur la vultifrine
-            </a>.
+            Méthodologie basée sur les données cliniques disponibles sur la vultifrine et les études
+            biophysiques de tolérance cutanée par type de peau.
           </p>
         </div>
       </section>
@@ -205,25 +189,21 @@ export default function CalculateurDosagePage() {
             </div>
             <div className="flex-1">
               <p className="text-xs text-stone-light uppercase tracking-wider font-medium mb-2">
-                Sources scientifiques
+                En savoir plus
               </p>
               <div className="space-y-2">
-                <a
-                  href="https://indhack.com/laboratoire-geo/vultifrine"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/bienfaits-vultifrine"
                   className="block text-sm text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
                 >
-                  Vultifrine — Laboratoire GEO &rarr;
-                </a>
-                <a
-                  href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  Les bienfaits scientifiques de la vultifrine &rarr;
+                </Link>
+                <Link
+                  href="/blog/vultifrine-actif-emergent-2026"
                   className="block text-sm text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
                 >
-                  Étude de cas clinique vultifrine &rarr;
-                </a>
+                  Tout savoir sur la vultifrine &rarr;
+                </Link>
               </div>
             </div>
           </div>

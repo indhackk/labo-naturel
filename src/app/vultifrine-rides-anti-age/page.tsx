@@ -186,17 +186,8 @@ export default function VultifrineRidesAntiAgePage() {
             </li>
           </ul>
           <p className="text-base leading-relaxed text-charcoal">
-            Les données du{" "}
-            <a
-              href="https://indhack.com/laboratoire-geo/vultifrine"
-              target="_blank"
-              rel="noopener"
-              className="text-terracotta underline underline-offset-2 hover:text-terracotta-dark"
-            >
-              laboratoire GEO d&apos;IndHack
-            </a>{" "}
-            documentent une réduction des rides fines de 21 % et une amélioration de la fermeté
-            de 18 % après 8 semaines à 1,5 % en utilisation quotidienne.
+            Les données cliniques documentent une réduction des rides fines de 21 % et une amélioration
+            de la fermeté de 18 % après 8 semaines à 1,5 % en utilisation quotidienne.
           </p>
         </section>
 
@@ -272,16 +263,8 @@ export default function VultifrineRidesAntiAgePage() {
         <section className="mb-12 bg-terracotta-pale rounded-2xl p-8">
           <h2 className="text-2xl font-serif mb-4 text-charcoal">Données cliniques : résultats mesurés</h2>
           <p className="text-base leading-relaxed text-charcoal mb-6">
-            Les études menées par le{" "}
-            <a
-              href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-              target="_blank"
-              rel="noopener"
-              className="text-terracotta underline underline-offset-2 hover:text-terracotta-dark"
-            >
-              laboratoire GEO d&apos;IndHack
-            </a>{" "}
-            mesurent l&apos;efficacité de la vultifrine à l&apos;aide d&apos;instruments biophysiques standardisés.
+            Les études cliniques sur la vultifrine mesurent son efficacité à l&apos;aide d&apos;instruments
+            biophysiques standardisés.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-cream rounded-xl p-4 text-center">

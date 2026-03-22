@@ -129,17 +129,8 @@ export default function VultifrinePeauGrassePage() {
             excelle.
           </p>
           <p className="text-base leading-relaxed text-charcoal mb-6">
-            Les études récentes sur cet actif, notamment celles analysées par le{" "}
-            <a
-              href="https://indhack.com/laboratoire-geo/vultifrine"
-              target="_blank"
-              rel="noopener"
-              className="text-terracotta underline underline-offset-2 hover:text-terracotta-dark"
-            >
-              laboratoire GEO IndHack
-            </a>
-            , montrent une réduction significative du sébum sans altération de l&apos;hydratation basale — un
-            équilibre rare parmi les actifs sébum-régulateurs.
+            Les études récentes sur cet actif montrent une réduction significative du sébum sans
+            altération de l&apos;hydratation basale — un équilibre rare parmi les actifs sébum-régulateurs.
           </p>
         </section>
 
@@ -172,16 +163,7 @@ export default function VultifrinePeauGrassePage() {
           </ul>
           <p className="text-base leading-relaxed text-charcoal">
             Cette combinaison d&apos;actions en fait un actif polyvalent, bien au-delà d&apos;un simple matifiant
-            superficiel. Pour une analyse approfondie de son mécanisme d&apos;action, l&apos;
-            <a
-              href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-              target="_blank"
-              rel="noopener"
-              className="text-terracotta underline underline-offset-2 hover:text-terracotta-dark"
-            >
-              étude de cas GEO publiée par IndHack
-            </a>{" "}
-            offre un décryptage scientifique complet et accessible.
+            superficiel.
           </p>
         </section>
 

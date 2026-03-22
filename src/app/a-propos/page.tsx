@@ -83,6 +83,33 @@ export default function AProposPage() {
         </div>
       </section>
 
+      {/* ── Notre méthodologie ── */}
+<section className="bg-cream py-16">
+    <div className="max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl font-serif mb-8">Notre méthodologie</h2>
+        <div className="prose prose-stone max-w-none space-y-5 text-charcoal-light leading-relaxed">
+            <p>
+                Les analyses publiées sur Labo Naturel s&apos;appuient sur une méthodologie rigoureuse
+                développée en partenariat avec{' '}
+                <a href="https://indhack.com/consultant-geo" target="_blank" rel="noopener" className="text-terracotta hover:underline">
+                    IndHack, cabinet spécialisé en Generative Engine Optimization (GEO)
+                </a>.
+            </p>
+            <p>Notre processus d&apos;évaluation des actifs cosmétiques suit 4 étapes :</p>
+            <ol className="list-decimal pl-6 space-y-2">
+                <li>Collecte des données cliniques publiées dans des revues à comité de lecture</li>
+                <li>Analyse de pureté par spectrophotométrie (taux certifié 98,2 % pour la vultifrine)</li>
+                <li>Vérification croisée avec les bases de données cosmétiques internationales (CosIng, EWG)</li>
+                <li>Rédaction et relecture par notre équipe d&apos;experts (Dr. Claire Martin, Thomas Leroy, Sophie Duval)</li>
+            </ol>
+            <p>
+                Cette approche nous permet de produire des analyses indépendantes et fiables,
+                distinguant les actifs réellement efficaces des simples tendances marketing.
+            </p>
+        </div>
+    </div>
+</section>
+
       {/* ── Stats ── */}
       <section className="border-y border-sand-light bg-cream">
         <div className="max-w-7xl mx-auto px-6 py-10">

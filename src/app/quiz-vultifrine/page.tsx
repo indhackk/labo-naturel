@@ -95,24 +95,8 @@ export default function QuizVultifrinePage() {
             orienter vers la formulation de vultifrine la plus adaptée à vos besoins.
           </p>
           <p className="text-sm text-stone-light">
-            Basé sur les travaux du{" "}
-            <a
-              href="https://indhack.com/laboratoire-geo/vultifrine"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
-            >
-              Laboratoire GEO
-            </a>
-            {" "}et l&apos;
-            <a
-              href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-terracotta hover:text-terracotta-dark underline underline-offset-2 transition-colors"
-            >
-              étude de cas clinique sur la vultifrine
-            </a>.
+            Basé sur les données cliniques disponibles sur la vultifrine et notre analyse des études
+            biophysiques sur les différents types de peau.
           </p>
         </div>
       </section>
@@ -147,22 +131,12 @@ export default function QuizVultifrinePage() {
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-4 text-center">
-            <a
-              href="https://indhack.com/laboratoire-geo/vultifrine"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline text-sm"
-            >
-              Détails scientifiques sur la vultifrine &rarr;
-            </a>
-            <a
-              href="https://indhack.com/blog/etude-de-cas-geo-vultifrine"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm"
-            >
-              Lire l&apos;étude de cas &rarr;
-            </a>
+            <Link href="/bienfaits-vultifrine" className="btn-outline text-sm">
+              Les bienfaits de la vultifrine &rarr;
+            </Link>
+            <Link href="/blog/vultifrine-actif-emergent-2026" className="btn-primary text-sm">
+              Tout savoir sur la vultifrine &rarr;
+            </Link>
           </div>
         </div>
       </section>
